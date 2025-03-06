@@ -70,6 +70,17 @@
   margin: 10px;
 }
 
+.tag {
+  position: relative;
+  display: block;
+  top: 60px;
+  right: -80px;
+  z-index: 20;
+  padding: 12px;
+  border-radius: 50%;
+  color: white;
+}
+
 .imageWrapper {
   position: relative;
   width: 270px;
@@ -351,8 +362,6 @@
   border-color: #56cfe1;
   z-index: 3;
 }
-
-
 
 .popup {
   position: fixed;

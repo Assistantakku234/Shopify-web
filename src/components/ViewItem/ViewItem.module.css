@@ -196,14 +196,18 @@
 .halfStar {
   font-size: 24px;
   color: yellow;
-  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
-    1px 1px 0 black;
 }
 
 .halfStar svg {
   stroke: black;
   stroke-width: 1px;
 }
+
+.noStar {
+  font-size: 26px;
+  color: rgb(80, 80, 80);
+}
+
 
 .reviewText {
   font-size: 14px;
@@ -288,16 +292,36 @@
 }
 
 .addToCart {
+  width: 140px;
+  margin-top: 10px;
   padding: 10px 20px;
-  border-radius: 25px;
-  background-color: skyblue;
-  color: #fff;
-  padding: 10px 20px;
+  background: #56cfe1;
+  color: white;
   border: none;
+  border-radius: 20px;
   cursor: pointer;
-  margin-right: 10px;
-  transition: background 0.3s ease;
+  font-weight: 600;
+  transition: background 0.3s ease-in-out;
+  animation: shake 5s infinite linear; /* Halved animation duration for double speed */
 }
+
+@keyframes shake {
+  20%, 100% {
+      transform: translateX(0);
+  }
+  2%, 6%, 10%, 14%, 18% {
+      transform: translateX(-10px);
+  }
+  4%, 8%, 12%, 16% {
+      transform: translateX(10px);
+  }
+}
+
+.addToCart:hover {
+  background: #43bacc;
+}
+
+
 
 .securityBadges {
   display: flex;

@@ -83,7 +83,7 @@ const ViewItemPage = () => {
     }
   
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<span key={`empty-${i}`} className={styles.star}><IoIosStarOutline />
+      stars.push(<span key={`empty-${i}`} className={styles.noStar}><IoIosStarOutline />
 </span>);
     }
   
