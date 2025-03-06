@@ -13,8 +13,6 @@ import { LiaStarHalf } from "react-icons/lia";
 import { CiHeart } from "react-icons/ci";
 import { TbArrowsCross } from "react-icons/tb";
 
-
-
 const ViewItemPage = () => {
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("S");
@@ -58,12 +56,12 @@ const ViewItemPage = () => {
       const rect = mainImageRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      const maxX = rect.width - 300;
-      const maxY = rect.height - 300;
+      const maxX = rect.width - 200;
+      const maxY = rect.height - 200;
 
       setZoomPosition({
-        x: Math.max(0, Math.min(maxX, x - 150)),
-        y: Math.max(0, Math.min(maxY, y - 150)),
+        x: Math.max(0, Math.min(maxX, x - 100)),
+        y: Math.max(0, Math.min(maxY, y - 100)),
       });
     }
   };
@@ -75,23 +73,27 @@ const ViewItemPage = () => {
     const stars = [];
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<span key={`full-${i}`} className={styles.star}><IoIosStar />
-      </span>);
+      stars.push(
+        <span key={`full-${i}`} className={styles.star}>
+          <IoIosStar />
+        </span>
+      );
     }
 
     if (hasHalfStar) {
-      stars.push(<span key="half" className={styles.halfStar}><LiaStarHalf />
-      </span>);
+      stars.push(
+        <span key="half" className={styles.halfStar}>
+          <LiaStarHalf />
+        </span>
+      );
     }
 
     for (let i = 0; i < emptyStars; i++) {
-
-      stars.push(<span key={`empty-${i}`} className={styles.star}><IoIosStarOutline />
-      </span>);
-
-      stars.push(<span key={`empty-${i}`} className={styles.noStar}><IoIosStarOutline />
-      </span>);
-
+      stars.push(
+        <span key={`empty-${i}`} className={styles.noStar}>
+          <IoIosStarOutline />
+        </span>
+      );
     }
 
     return <div>{stars}</div>;
@@ -152,13 +154,34 @@ const ViewItemPage = () => {
                 alt={itemData.title}
                 className={styles.mainImage}
               />
+              {itemData.tag && (
+                <div className={styles.tagsContainer}>
+                  {Array.isArray(itemData.tag) ? (
+                    itemData.tag.map((tag, index) => (
+                      <span
+                        key={index}
+                        className={styles.tag}
+                        style={{ backgroundColor: tag.color }}
+                      >
+                        {tag.name}
+                      </span>
+                    ))
+                  ) : (
+                    <span
+                      className={styles.tag}
+                      style={{ backgroundColor: itemData.tag.color }}
+                    >
+                      {itemData.tag.name}
+                    </span>
+                  )}
+                </div>
+              )}
               <button
                 className={styles.imageSwitchButtonRight}
                 onClick={handleNextImage}
               >
                 &gt;
               </button>
-
               {isZoomed && (
                 <>
                   <div
@@ -200,8 +223,9 @@ const ViewItemPage = () => {
                 {["S", "M", "L", "XL"].map((size) => (
                   <button
                     key={size}
-                    className={`${styles.sizeButton} ${selectedSize === size ? styles.activeSize : ""
-                      }`}
+                    className={`${styles.sizeButton} ${
+                      selectedSize === size ? styles.activeSize : ""
+                    }`}
                     onClick={() => setSelectedSize(size)}
                   >
                     {size}
@@ -242,18 +266,21 @@ const ViewItemPage = () => {
                       JSON.parse(localStorage.getItem("cart")) || [];
                     existingCart.push(cartItem);
                     localStorage.setItem("cart", JSON.stringify(existingCart));
-                    alert("Item added to cart!");
                   }}
                 >
                   Add to Cart
                 </button>
               </Link>
-              <button className={styles.iconButton}>   < CiHeart size={20} strokeWidth={1.5} />  </button>
-              <button className={styles.iconButton}>< TbArrowsCross size={20} strokeWidth={1.5} /></button>
+              {/* <button className={styles.iconButton}>
+                {" "}
+                <CiHeart size={20} strokeWidth={1.5} />{" "}
+              </button>
+              <button className={styles.iconButton}>
+                <TbArrowsCross size={20} strokeWidth={1.5} />
+              </button> */}
             </div>
             <div className={styles.securityIcons}>
               <img src="/addtocart.jpg" />
-
             </div>
             <div className={styles.infoSection}>
               <span className={styles.delivery}>Delivery & Return</span>

@@ -79,7 +79,15 @@ export default function Cart() {
                   <h3>{item.title}</h3>
                   <p>₹{item.price * item.quantity}</p>
                   <div className={styles.quantityControl}>
-                    <button onClick={() => handleDecrement(index)}>-</button>
+                    {item.quantity > 1 ? (
+                      <button onClick={() => handleDecrement(index)}>
+                        -
+                      </button>
+                    ) : (
+                      <button onClick={() => handleRemoveItem(index)}>
+                        -
+                      </button>
+                    )}
                     <span>{item.quantity}</span>
                     <button onClick={() => handleIncrement(index)}>+</button>
                   </div>
