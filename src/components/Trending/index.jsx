@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 import { TbArrowsCross } from "react-icons/tb";
@@ -13,6 +13,12 @@ const initialCards = [
     hoverImage: "/Resin Strap02.jpg",
     sizes: "XS, S, M, L",
     description: "A stylish and durable analogue resin strap.",
+    rating: "4.2",
+    tag: {
+      name: "New",
+      color: "#007bff",
+    },
+    category: "New-Arrival"
   },
   {
     title: "Ridley High Waist",
@@ -21,6 +27,12 @@ const initialCards = [
     hoverImage: "/Ridley02.jpg",
     sizes: "S, M, L",
     description: "Comfortable and fashionable high waist jeans.",
+    rating: "3.8",
+    tag: {
+      name: "Sale",
+      color: "#dc3545",
+    },
+    category: "New-Arrival"
   },
   {
     title: "Blush Beanie",
@@ -29,6 +41,12 @@ const initialCards = [
     hoverImage: "/Blush Beanie02.jpg",
     sizes: "XS, S, M, L",
     description: "A warm and cozy blush beanie for winter.",
+    rating: "4.9",
+    tag: {
+      name: "New",
+      color: "#007bff",
+    },
+    category: "New-Arrival"
   },
   {
     title: "Cluse La Baheme Rose Gold",
@@ -37,13 +55,18 @@ const initialCards = [
     hoverImage: "/Gold02.jpg",
     sizes: "L",
     description: "Elegant Cluse La Baheme rose gold watch.",
-    rating: "3.7",
+    rating: "3.5",
+    tag: {
+      name: "Limited",
+      color: "#ffc107",
+    },
+    category: "New-Arrival"
   },
 ];
 
 export default function Trending({ openPopup }) {
   const [cards, setCards] = useState(initialCards);
-  const [popup, setPopup] = useState(null); // Track which item is added
+  const [popup, setPopup] = useState(null);
 
   const loadMoreCards = () => {
     const newCards = initialCards.map((card, index) => ({
@@ -52,6 +75,23 @@ export default function Trending({ openPopup }) {
     }));
 
     setCards((prevCards) => [...prevCards, ...newCards]);
+  };
+
+  const handleAddToCart = (card, index) => {
+    const cartItem = {
+      title: card.title,
+      price: card.price,
+      image: card.image,
+    };
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    existingCart.push(cartItem);
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+
+    setPopup(index);
+
+    setTimeout(() => {
+      setPopup(null);
+    }, 1000);
   };
 
   return (
@@ -92,24 +132,7 @@ export default function Trending({ openPopup }) {
                   <div className={styles.centerButtons}>
                     <button
                       className={styles.addToCartBtn}
-                      onClick={() => {
-                        const cartItem = {
-                          title: card.title,
-                          price: card.price,
-                          image: card.image,
-                        };
-                        // take the old cart or create an empty array
-                        const existingCart =
-                          JSON.parse(localStorage.getItem("cart")) || [];
-                        // add new item
-                        existingCart.push(cartItem);
-                        // save in local storage
-                        localStorage.setItem(
-                          "cart",
-                          JSON.stringify(existingCart)
-                        );
-                        alert("Item added to cart!");
-                      }}
+                      onClick={() => handleAddToCart(card, index)}
                     >
                       Add to Cart
                     </button>

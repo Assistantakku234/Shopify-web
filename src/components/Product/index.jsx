@@ -26,6 +26,9 @@ const initialCards = [
     sizes: "XS, S, M, L",
     category: "Shoes",
     NewArrival: true,
+    description: "A stylish and durable analogue resin strap.",
+    rating: "4.2",
+    tag: { name: "New", color: "#007bff" },
   },
   {
     title: "Ridley High Waist",
@@ -35,6 +38,9 @@ const initialCards = [
     sizes: "S, M, L",
     category: "Denim",
     NewArrival: true,
+    description: "Comfortable and fashionable high waist jeans.",
+    rating: "3.8",
+    tag: { name: "Sale", color: "#dc3545" },
   },
   {
     title: "Blush Beanie",
@@ -44,6 +50,9 @@ const initialCards = [
     sizes: "XS, S, M, L",
     category: "Hats",
     NewArrival: true,
+    description: "A warm and cozy blush beanie for winter.",
+    rating: "4.9",
+    tag: { name: "New", color: "#007bff" },
   },
   {
     title: "Cluse La Baheme Rose Gold",
@@ -53,6 +62,9 @@ const initialCards = [
     sizes: "One Size",
     category: "Women",
     NewArrival: true,
+    description: "Elegant Cluse La Baheme rose gold watch.",
+    rating: "3.5",
+    tag: { name: "Limited", color: "#ffc107" },
   },
   {
     title: "Mercury Tee",
@@ -62,6 +74,9 @@ const initialCards = [
     sizes: "S, M, L, XL, XXL",
     category: "Men",
     NewArrival: true,
+    description: "A classic and comfortable mercury tee.",
+    rating: "4.5",
+    tag: { name: "New", color: "#007bff" },
   },
   {
     title: "La Baheme Rose Gold",
@@ -71,6 +86,9 @@ const initialCards = [
     sizes: "XS, S, M, L",
     category: "Sale",
     NewArrival: true,
+    description: "Beautiful rose gold watch on sale.",
+    rating: "4.0",
+    tag: { name: "Sale", color: "#dc3545" },
   },
   {
     title: "Cream women pants",
@@ -80,6 +98,9 @@ const initialCards = [
     sizes: "S, M, L, XL, XXL",
     category: "Women",
     NewArrival: true,
+    description: "Stylish cream pants for women.",
+    rating: "3.9",
+    tag: { name: "New", color: "#007bff" },
   },
   {
     title: "Black mountain hat",
@@ -89,12 +110,16 @@ const initialCards = [
     sizes: "XS, S, M, L",
     category: "Hats",
     NewArrival: true,
+    description: "Warm and stylish black mountain hat.",
+    rating: "4.7",
+    tag: { name: "Limited", color: "#ffc107" },
   },
 ];
 
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [selectedOption, setSelectedOption] = useState("Alphabetically, A-Z");
+    const [popup, setPopup] = useState(null);
 
   const filteredCards = useMemo(() => {
     let filtered = [...initialCards];
@@ -210,7 +235,12 @@ const ProductsPage = () => {
                           "cart",
                           JSON.stringify(existingCart)
                         );
-                        alert("Item added to cart!");
+
+                        setPopup(index);
+                    
+                        setTimeout(() => {
+                          setPopup(null);
+                        }, 1000);
                       }}
                     >
                       Add to Cart
@@ -232,6 +262,9 @@ const ProductsPage = () => {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
+            {popup === index && (
+              <div className={styles.popup}>Added to cart!</div>
+            )}
           </div>
         ))}
       </div>

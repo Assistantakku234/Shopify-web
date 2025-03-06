@@ -106,41 +106,40 @@ export default function CheckoutUI() {
                     <h3>Total: ₹{totalPrice}</h3>
                 </div>
             </div>
+
+
             <div className={styles.summarySection}>
                 <div className={styles.coupons}>
                     <h4>Coupons and offers</h4>
                     <p>Save more with coupon and offers</p>
+                    <input type="text" placeholder="Enter coupen code" className={styles.input} />
+                    <button className={styles.applyButton}>Apply</button>
+
                 </div>
                 <div className={styles.orderSummary}>
-                    <h4 className={styles.orderHeading}>Order Summary</h4>
+                    <h3>Order Summary</h3>
                     <hr className={styles.divider} />
                     <div className={styles.row}>
-                        <p>Items total </p>
-                        <p> ₹{totalPrice}</p>
+                        <span>Items</span>
+                        <span>1</span>
                     </div>
                     <div className={styles.row}>
-                        <span>Delivery fee</span>
-                        <span className={styles.free}>Free</span>
+                        <span className={styles.summaryItem}>Items total</span>
+                        <div className={styles.summaryItem}>{` ₹${totalPrice}`}</div>
                     </div>
-                    <hr className={styles.divider} />
-                    <div className={styles.totalRow}>
-                        <h4>Total cost: </h4>
-                        <span>₹{totalPrice}/-</span>
-                    </div>
-                    <p className={styles.taxInfo}>Inclusive of all taxes</p>
+
+                    <div className={styles.summaryItem}>Delivery fee:- <span className={styles.free}>Free</span></div>
+                    <div className={styles.totalCost}>{`Total cost:-  ₹${totalPrice} /-`}</div>
                     <Link href="/Form">
-                        <button
-                            className={styles.continueBtn}
+                        <button className={styles.continueButton}
                             onClick={() => {
                                 localStorage.setItem("selectedCart", JSON.stringify(cartItems));
                                 localStorage.setItem("selectedQuantities", JSON.stringify(quantities));
-                            }}
-                        >
-                            Continue
-                        </button>
+                            }}>Continue</button>
                     </Link>
                 </div>
             </div>
+
         </div>
        </div>
     );

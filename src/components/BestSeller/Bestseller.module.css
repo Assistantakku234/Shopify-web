@@ -351,3 +351,18 @@
   border-color: #56cfe1;
   z-index: 3;
 }
+
+
+
+.popup {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  top: 30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  font-size: 0.8rem;
+}

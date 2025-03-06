@@ -182,7 +182,27 @@
 }
 
 .star {
-  color: red;
+  font-size: 24px;
+  color: yellow;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.star svg {
+  stroke: black;
+  stroke-width: 15px;
+}
+
+.halfStar {
+  font-size: 24px;
+  color: yellow;
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+    1px 1px 0 black;
+}
+
+.halfStar svg {
+  stroke: black;
+  stroke-width: 1px;
 }
 
 .reviewText {

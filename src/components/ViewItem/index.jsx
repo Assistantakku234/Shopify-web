@@ -6,6 +6,12 @@ import styles from "./ViewItem.module.css";
 import { CiFacebook, CiMail } from "react-icons/ci";
 import { FaXTwitter, FaPinterestP, FaTumblr } from "react-icons/fa";
 import { BsTelegram } from "react-icons/bs";
+import { IoIosStar, IoIosStarOutline } from "react-icons/io";
+import { LiaStarHalf } from "react-icons/lia";
+
+
+
+
 
 const ViewItemPage = () => {
   const [quantity, setQuantity] = useState(1);
@@ -14,6 +20,7 @@ const ViewItemPage = () => {
   const [zoomPosition, setZoomPosition] = useState({ x: 0, y: 0 });
   const [itemData, setItemData] = useState(null);
   const [mainImage, setMainImage] = useState("");
+  const [rating, setRating] = useState(null);
   const mainImageRef = useRef(null);
   const images = useRef([]);
 
@@ -24,7 +31,12 @@ const ViewItemPage = () => {
         const parsedItem = JSON.parse(storedItem);
         setItemData(parsedItem);
         setMainImage(parsedItem.hoverImage);
-        images.current = [parsedItem.image, parsedItem.hoverImage, parsedItem.image];
+        images.current = [
+          parsedItem.image,
+          parsedItem.hoverImage,
+          parsedItem.image,
+        ];
+        setRating(parsedItem.rating);
       } else {
         console.error("No item data found in local storage.");
       }
@@ -44,7 +56,6 @@ const ViewItemPage = () => {
       const rect = mainImageRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-
       const maxX = rect.width - 300;
       const maxY = rect.height - 300;
 
@@ -55,9 +66,34 @@ const ViewItemPage = () => {
     }
   };
 
+  function StarRating({ rating }) {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating - fullStars >= 0.5;
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    const stars = [];
+  
+    for (let i = 0; i < fullStars; i++) {
+      stars.push(<span key={`full-${i}`} className={styles.star}><IoIosStar />
+</span>);
+    }
+  
+    if (hasHalfStar) {
+      stars.push(<span key="half" className={styles.halfStar}><LiaStarHalf />
+</span>);
+    }
+  
+    for (let i = 0; i < emptyStars; i++) {
+      stars.push(<span key={`empty-${i}`} className={styles.star}><IoIosStarOutline />
+</span>);
+    }
+  
+    return <div>{stars}</div>;
+  }
+
   const handlePrevImage = () => {
     const currentIndex = images.current.indexOf(mainImage);
-    const prevIndex = (currentIndex - 1 + images.current.length) % images.current.length;
+    const prevIndex =
+      (currentIndex - 1 + images.current.length) % images.current.length;
     setMainImage(images.current[prevIndex]);
   };
 
@@ -81,7 +117,11 @@ const ViewItemPage = () => {
                     src={img}
                     alt={`Thumbnail ${index + 1}`}
                     onClick={() => handleImageClick(img)}
-                    className={mainImage === img ? styles.activeThumbnail : styles.inactiveThumbnail}
+                    className={
+                      mainImage === img
+                        ? styles.activeThumbnail
+                        : styles.inactiveThumbnail
+                    }
                   />
                 ))}
               </div>
@@ -93,7 +133,10 @@ const ViewItemPage = () => {
               onMouseMove={handleMouseMove}
               onMouseLeave={() => setIsZoomed(false)}
             >
-              <button className={styles.imageSwitchButtonLeft} onClick={handlePrevImage}>
+              <button
+                className={styles.imageSwitchButtonLeft}
+                onClick={handlePrevImage}
+              >
                 &lt;
               </button>
               <img
@@ -102,7 +145,10 @@ const ViewItemPage = () => {
                 alt={itemData.title}
                 className={styles.mainImage}
               />
-              <button className={styles.imageSwitchButtonRight} onClick={handleNextImage}>
+              <button
+                className={styles.imageSwitchButtonRight}
+                onClick={handleNextImage}
+              >
                 &gt;
               </button>
 
@@ -130,16 +176,14 @@ const ViewItemPage = () => {
             </div>
           </div>
 
-
           <div className={styles.productDetails}>
             <h1 className={styles.productTitle}>{itemData.title}</h1>
             <div className={styles.productPrice}>{`$${itemData.price}`}</div>
             <div className={styles.productRating}>
-              <span className={styles.star}>⭐</span>
-              <span className={styles.star}>⭐</span>
-              <span className={styles.star}>⭐</span>
-              <span className={styles.star}>⭐</span>
+              <StarRating rating={parseFloat(itemData.rating)} />{" "}
+              {/* Parse rating as float */}
               <span className={styles.reviewText}>(4 reviews)</span>
+              <p>{`${itemData.rating} stars`}</p>
             </div>
             <p className={styles.productDescription}>{itemData.description}</p>
 
@@ -208,31 +252,3 @@ const ViewItemPage = () => {
 };
 
 export default ViewItemPage;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
