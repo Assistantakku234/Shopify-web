@@ -198,6 +198,14 @@ const ProductsPage = () => {
       <div className={styles.cardsContainer}>
         {filteredCards.map((card, index) => (
           <div key={index} className={styles.imgCard}>
+          {card.tag && (
+              <div
+                className={styles.tag}
+                style={{ backgroundColor: card.tag.color }}
+              >
+                {card.tag.name}
+              </div>
+            )}
             <div className={styles.imageWrapper}>
               <img
                 src={card.defaultImage}

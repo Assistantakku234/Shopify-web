@@ -25,7 +25,8 @@ const cardsData = [
     image: "/Women Pants01.jpg",
     hoverImage: "/Women Pants02.jpg",
     sizes: "S, M, L",
-    description: "Comfortable and breathable pants perfect for casual and formal wear.",
+    description:
+      "Comfortable and breathable pants perfect for casual and formal wear.",
     rating: "4.0",
     tag: { name: "Sale", color: "#dc3545" },
     category: "Women's Clothing",
@@ -48,7 +49,8 @@ const cardsData = [
     price: "29.99",
     image: "/MenPants01.jpg",
     hoverImage: "/MenPants02.jpg",
-    description: "Premium quality men’s pants with a relaxed fit and stylish look.",
+    description:
+      "Premium quality men’s pants with a relaxed fit and stylish look.",
     rating: "3.9",
     tag: { name: "Limited", color: "#ffc107" },
     category: "Men's Clothing",
@@ -60,7 +62,8 @@ const cardsData = [
     image: "/Hoodie01.jpg",
     hoverImage: "/Hoodie02.jpg",
     sizes: "S, M, L, XL, XXL",
-    description: "Cozy and warm hoodie made from soft fleece for maximum comfort.",
+    description:
+      "Cozy and warm hoodie made from soft fleece for maximum comfort.",
     rating: "4.6",
     tag: { name: "New", color: "#007bff" },
     category: "Outerwear",
@@ -84,7 +87,8 @@ const cardsData = [
     image: "/Blush Beanie01.jpg",
     hoverImage: "/Blush Beanie02.jpg",
     sizes: "S, M, L, XL, XXL",
-    description: "Soft knit beanie to keep you warm and stylish in cold weather.",
+    description:
+      "Soft knit beanie to keep you warm and stylish in cold weather.",
     rating: "4.9",
     tag: { name: "New", color: "#007bff" },
     category: "Hats",
@@ -96,7 +100,8 @@ const cardsData = [
     image: "/snapback01.jpg",
     hoverImage: "/snapback02.jpg",
     sizes: "XS, S, M, L",
-    description: "Classic snapback cap with an adjustable fit for everyday wear.",
+    description:
+      "Classic snapback cap with an adjustable fit for everyday wear.",
     rating: "4.2",
     tag: { name: "Limited", color: "#ffc107" },
     category: "Hats",
@@ -149,6 +154,14 @@ export default function BestSeller() {
         <div className={styles.cardsContainer}>
           {cards.map((card, index) => (
             <div key={index} className={styles.imgCard}>
+              {card.tag && (
+                  <div
+                    className={styles.tag}
+                    style={{ backgroundColor: card.tag.color }}
+                  >
+                    {card.tag.name}
+                  </div>
+                )}
               <div className={styles.imageWrapper}>
                 <img
                   src={card.image}
@@ -170,6 +183,7 @@ export default function BestSeller() {
                         <TbArrowsCross className={styles.icon} />
                       </button>
                     </div>
+                    <div className={styles.overlay}></div>
                     <div className={styles.centerButtons}>
                       <button
                         className={styles.addToCartBtn}

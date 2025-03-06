@@ -106,9 +106,20 @@
 }
 
 .imgCard {
-  width: 270px; /* Fixed width */
+  width: 270px;
   margin: 10px;
   overflow: hidden;
+}
+
+.tag {
+  position: relative;
+  justify-self: right;
+  top: 60px;
+  right: 10px;
+  z-index: 20;
+  padding: 8px;
+  border-radius: 50%;
+  color: white;
 }
 
 .imageWrapper {

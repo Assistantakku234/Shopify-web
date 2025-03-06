@@ -18,7 +18,7 @@ const initialCards = [
       name: "New",
       color: "#007bff",
     },
-    category: "New-Arrival"
+    category: "New-Arrival",
   },
   {
     title: "Ridley High Waist",
@@ -32,7 +32,7 @@ const initialCards = [
       name: "Sale",
       color: "#dc3545",
     },
-    category: "New-Arrival"
+    category: "New-Arrival",
   },
   {
     title: "Blush Beanie",
@@ -46,7 +46,7 @@ const initialCards = [
       name: "New",
       color: "#007bff",
     },
-    category: "New-Arrival"
+    category: "New-Arrival",
   },
   {
     title: "Cluse La Baheme Rose Gold",
@@ -60,7 +60,7 @@ const initialCards = [
       name: "Limited",
       color: "#ffc107",
     },
-    category: "New-Arrival"
+    category: "New-Arrival",
   },
 ];
 
@@ -108,6 +108,14 @@ export default function Trending({ openPopup }) {
       <div className={styles.cardsContainer}>
         {cards.map((card, index) => (
           <div key={index} className={styles.imgCard}>
+            {card.tag && (
+              <div
+                className={styles.tag}
+                style={{ backgroundColor: card.tag.color }}
+              >
+                {card.tag.name}
+              </div>
+            )}
             <div className={styles.imageWrapper}>
               <img
                 src={card.image}
