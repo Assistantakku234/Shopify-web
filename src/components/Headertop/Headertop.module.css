@@ -1,4 +1,4 @@
-.banner {
+.topAlert {
     background-color: #e91e63;
     flex-grow: 1;
     flex-wrap: 1;
@@ -17,17 +17,19 @@
     padding-left: 10px;
     padding-right: 10px;
     padding-top: 5px;
-    font-family: Poppins;
     font-size: 12px;
     font-weight: 400;
-    font-stretch: 100%;
+   
     line-height: 20.4px;
-    text-size-adjust: 100%;
-    font-kerning: auto;
-    font-optical-sizing: auto;
+   
+    
+  }
+
+  .strong{
+    font-weight: 600;
   }
   
-  .close {
+  .closeIcon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,7 +43,7 @@
     cursor: pointer;
   }
 
-  .cross {
+  .crossIcon {
     position: relative;
     right: 15px;
     top: -7px;
@@ -52,22 +54,24 @@
     font-weight: 100;
   }
   
-  /* Default Hurry Up style */
-  .hurryUp {
+  
+  .promoHighlight {
     color: white;
     margin-left: 5px;
-    transition: all 0.3s ease;
+    transition: color  0.3s ease;
     cursor: pointer;
   }
-  .hurryUp:hover {
-    color: rgb(221, 221, 221);
-    transition: all 0.3s ease;
-  }
 
-  .hurryUp:hover .arrow{
-    margin-left: 5px;
-    transition: all 0.3s ease;
-  }
+  .promoHighlight:hover {
+    color: rgb(221, 221, 221); 
+}
+  .promoHighlight .arrow {
+    transition: font-size 0.3s ease;
+}
+
+.promoHighlight:hover .arrow {
+    font-size: 1.2em; 
+}
   
   @media (max-width: 768px) {
     .banner {
@@ -107,4 +111,27 @@
     .hurryUpHover {
       font-size: 10px; /* Consistent hover font size on tiny screens */
     }
+  }
+
+
+  @media (max-width: 1024px){
+    .topAlert {
+        padding: 6px;
+        font-size: 10px;
+        height: 38px;
+    }
+
+    .closeIcon {
+      right: 8px;
+      font-size: 10px;
+  }
+
+  .promoHighlight {
+    font-size: 10px;
+}
+
+.promoHighlight:hover .arrow {
+  font-size: 1.2em;
+}
+
   }

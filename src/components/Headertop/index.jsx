@@ -10,16 +10,16 @@ export default function Headertop() {
   if (!visible) return null;
 
   return (
-    <div className={styles.banner}>
+    <div className={styles.topAlert}>
       <p>
-        Today deal sale off 70%. End in · 
-        <span 
-          className={styles.hurryUp}
+        Today deal sale off <strong>70%</strong>. End in.
+        <span
+          className={styles.promoHighlight}
         >
           Hurry Up <span className={styles.arrow}> →</span>
         </span>
       </p>
-      <button className={styles.close} onClick={() => setVisible(false)}><inline className={styles.cross}>× </inline> close</button>
+      <button className={styles.closeIcon} onClick={() => setVisible(false)}><inline className={styles.crossIcon}>× </inline> close</button>
     </div>
   );
 }
