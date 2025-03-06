@@ -260,9 +260,9 @@ const ViewItemPage = () => {
               <span>Ask a Question</span>
             </div>
             <div className={styles.details}>
-              <p><strong>Availability:</strong> <span className={styles.inStock}>In Stock</span></p>
-              <p><strong>Categories:</strong> Fashion</p>
-              <p><strong>Tags:</strong> Price $50-$150, Vendor Kalles, Women</p>
+              <p className={styles.detailsTitle}>Availability: <span>In Stock</span></p>
+              <p>Categories: Fashion</p>
+              <p>Tags: Price $50-$150, Vendor Kalles, Women</p>
             </div>
             <div className={styles.socialIcons}>
               <FaFacebookF size={20} />
