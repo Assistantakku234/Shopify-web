@@ -1,14 +1,13 @@
 
 .wrapper {
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: rgb(135, 135, 135);
 }
 .container {
   width:100%;
   max-width: 900px;
   margin: auto;
   padding: 30px;
-  
   margin-bottom: 60px;
   
 }
@@ -20,7 +19,6 @@
   font-weight: 400;
   line-height: 23.8px;
   color:rgb(135, 135, 135);
- 
   border-bottom: 2px solid #ddd;
   padding-bottom: 10px;
 }
