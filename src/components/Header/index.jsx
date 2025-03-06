@@ -4,12 +4,14 @@ import React, { useState } from "react";
 import styles from "./Header.module.css";
 import { FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
+
 const languages = [
   { code: "en", name: "English" },
   { code: "fr", name: "Français" },
   { code: "de", name: "Deutsch" },
   { code: "jp", name: "日本語" },
 ];
+
 
 const Header = () => {
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
@@ -34,30 +36,30 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.topBar}>
-      <div className={styles.left}>
-        <FaPhone className={styles.contacticon} />{" "}
+    <div className={styles.headerTopbar}>
+      <div className={styles.contactInfo}>
+        <FaPhone className={styles.contactIcon} />{" "}
         <span className={styles.contact}>+01 23456789</span>
-        <FaEnvelope className={styles.mailicon} />{" "}
-        <span className={styles.mail}>Kalles@domain.com</span>
+        <FaEnvelope className={styles.mailIcon} />{" "}
+        <span className={styles.email}>Kalles@domain.com</span>
       </div>
-      <div className={styles.center}>
-        Summer sale discount off <span className={styles.highlight}> 50% </span>
-        <a href="#" className={styles.shopNow}>
+      <div className={styles.promoBanner}>
+        <p className={styles.promo}>Summer sale discount off <span className={styles.discount}> 50% </span></p>
+        <a href="#" className={styles.shopNowButton}>
           Shop Now!
         </a>
       </div>
-      <div className={styles.right}>
-        <FaMapMarkerAlt className={styles.icon} />{" "}
-        <span className={styles.location}>
-        <Link href="/Location">Location</Link>
-          </span>
+      <div className={styles.headerActions}>
+        <FaMapMarkerAlt className={styles.locationIcon} />{" "}
+        <span className={styles.locationLink}>
+          <Link href="/Location">Location</Link>
+        </span>
         {/* Language Selector */}
-        <span className={styles.language} onClick={toggleLanguageDropdown}>
+        <span className={styles.languageDropdown} onClick={toggleLanguageDropdown}>
           {selectedLanguage.name} &#9662;
         </span>
         {isLanguageDropdownOpen && (
-          <ul className={styles.dropdownList}>
+          <ul className={styles.dropdownMenu}>
             {languages.map((language) => (
               <li
                 key={language.code}

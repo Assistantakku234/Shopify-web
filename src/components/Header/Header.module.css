@@ -1,5 +1,5 @@
 
-.topBar {
+.headerTopbar {
   height: 45px;
   display: flex;
   justify-content: space-between;
@@ -8,27 +8,59 @@
   color: gray;
   font-family: Arial, sans-serif;
   position: relative;
+  align-items: center;
 }
 
-.left, .center, .right {
+.contactInfo .headerActions {
+  display: inline-block;
+  
+}
+
+.promoBanner{
+  box-sizing: border-box;
+  display: block;
+  flex-grow: 1; 
+ padding: 10px;
+ white-space: nowrap; 
+  justify-content: center;
+ 
   display: flex;
   align-items: center;
-  font-size: 12px;
+  text-align: center;
+  margin-left: -160px;
 }
 
-.left span, .right span {
+.promo{
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20.4px;
+  color: rgb(135, 135, 135);
+}
+
+.contactInfo span, .right span {
   margin-left: 8px;
 }
 
-.contacticon {
+.contactIcon {
   color: lightgrey;
   margin-right: -4px;
+  height:16px;
+  width:16px;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20.4px;
+  text-align: start;
+  color:rgb(135, 135, 135)
 }
 
 .contact {
-  color: gray;
   margin-right: 20px;
   font-size: 12px;
+  font-weight: 400;
+  line-height: 20.4px;
+  vertical-align:baseline;
+  color:rgb(135, 135, 135)
 }
 
 .contact:hover{
@@ -37,33 +69,57 @@
 
 
 
-.mailicon {
+.mailIcon {
   color: lightgrey;
   margin-right: -4px;
+  height:16px;
+  width:16px;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20.4px;
+  text-align: start;
+  color:rgb(135, 135, 135)
 }
 
-.mail {
-  color: gray;
+.email {
   margin-right: 20px;
   font-size: 12px;
+  font-weight: 400;
+  line-height: 20.4px;
+  text-align: start;
+  vertical-align:baseline;
+  color:rgb(135, 135, 135);
 }
 
-.mail:hover{
+.email:hover{
   color:#00bcd4;
 }
 
-.icon {
-  color: lightgrey;
-  margin-right: -2px;
-  gap: 10px;
+.locationIcon {
+ height: 16px;
+ width: 16px;
+ display: inline-block;
+ vertical-align: middle;
+ font-size: 12px;
+ font-weight: 400;
+ line-height: 20.4px;
+ color:rgb(135, 135, 135);
+ 
 }
 
-.highlight {
-  font-weight: bold;
-  color: #ff6347; 
+.discount {
+  font-weight: 400;
+  color:#ec0101;
 }
 
-.shopNow:hover{
+.shopNowButton{
+  font-size: 12px;
+  font-weight: 400;
+  color:#222222;
+}
+
+.shopNowButton:hover{
   color:#00bcd4;
 }
 
@@ -72,40 +128,39 @@
   margin-left: -14px;
 }
 
-.location {
-  margin-left: 12px;
+.locationLink{
+  margin-left: 3px;
   font-size: 12px;
 }
 
-.location:hover{
+.locationLink:hover{
   color:#00bcd4;
 }
 
-.language {
+.languageDropdown {
   margin-left: 12px;
   font-size: 12px;
   cursor: pointer;
 }
 
-.language:hover{
+.languageDropdown:hover{
   color:#00bcd4;
 }
 
 
-/* Fix for dropdown positioning */
-.right {
+
+.headerActions {
   display: flex;
   align-items: center;
-  position: relative; /* Added relative positioning for correct dropdown placement */
-}
+  position: relative; 
 
-/* Dropdown list styles */
-.dropdownList {
+}
+.dropdownMenu {
   list-style: none;
   margin: 0 10px;
   padding: 10px;
   position: absolute;
-  top: 100%; /* Ensure the dropdown is below the USD text */
+  top: 100%; 
   left: -10px;
   background-color: #ffffff;
   border: 1px solid #ddd;
@@ -113,7 +168,7 @@
   min-width: 200px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   z-index: 1000;
-  text-align: left; /* Align text to the left inside the dropdown */
+  text-align: left; 
 }
 
 
@@ -126,4 +181,124 @@
 
 .dropdownItem:hover{
   color: #00bcd4
+}
+
+
+@media (max-width: 1024px) {
+  .headerTopbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 5px;
+    height: auto;
+  }
+
+  .contactInfo .headerActions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    gap: 10px;
+  }
+
+  .promoBanner {
+    font-size: 11px;
+    padding: 8px;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .promo {
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .contactInfo span, .right span {
+    margin-left: 5px; 
+  }
+
+  .contactIcon {
+    height: 14px;
+    width: 14px;
+    font-size: 11px;
+    margin-right: -2px; 
+  }
+
+  .contact {
+    margin-right: 10px; 
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .contact:active {
+    color: #00bcd4; 
+  }
+
+  .mailIcon {
+    height: 14px;
+    width: 14px;
+    font-size: 11px;
+    margin-right: -2px; 
+  }
+
+  .email {
+    margin-right: 10px; 
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .email:active {
+    color: #00bcd4; 
+  }
+
+  .locationIcon {
+    height: 14px;
+    width: 14px;
+    font-size: 11px;
+  }
+
+  .discount {
+    font-size: 12px; 
+
+
+  }
+
+  .shopNowButton {
+    font-size: 11px;
+  }
+
+  .arrow {
+    font-size: 11px;
+    margin-left: -10px;
+  }
+
+  .locationLink {
+    font-size: 11px;
+    margin-left: 2px;
+  }
+
+  .locationLink:hover {
+    color: #00bcd4;
+  }
+
+  .languageDropdown {
+    font-size: 11px;
+    margin-left: 8px;
+  }
+
+  .headerActions {
+    flex-wrap: wrap; 
+    justify-content: center; 
+  }
+
+  .dropdownMenu {
+    left: 0; 
+    width: 180px; 
+    padding: 8px; 
+  }
+
+  .dropdownItem {
+    padding: 8px 12px; 
+    font-size: 14px; 
+  }
 }
