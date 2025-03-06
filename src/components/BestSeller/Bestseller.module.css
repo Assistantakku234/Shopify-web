@@ -28,11 +28,10 @@
 .line {
   width: 40px;
   height: 2px;
-  background-color: black; /* Adjust color as needed */
+  background-color: black;
 }
 
 .title h2 {
-  color: rgb(34, 34, 34);
   font-size: 24px;
   font-weight: 600;
 }
@@ -46,7 +45,6 @@
 }
 
 /* Cards content */
-
 .cardsContainer {
   margin-left: auto;
   margin-right: auto;
@@ -70,13 +68,22 @@
   margin: 10px;
 }
 
+.tagContainer {
+  position: relative;
+  width: 100%;
+  height: 0px;
+}
+
 .tag {
   position: relative;
-  display: block;
-  top: 60px;
-  right: -80px;
+  display: flex;
+  justify-self: right;
+  top: 20px;
+  left: -20px;
+  font-size: 14px;
+  font-weight: 400;
   z-index: 20;
-  padding: 12px;
+  padding: 8px;
   border-radius: 50%;
   color: white;
 }
@@ -93,16 +100,15 @@
   width: 100%;
   height: 100%;
   transition: opacity 0.5s ease-in-out;
+  position: absolute;
 }
 
 .imageDefault {
-  position: absolute;
   z-index: 1;
   opacity: 1;
 }
 
 .imageHover {
-  position: absolute;
   z-index: 2;
   opacity: 0;
 }
@@ -115,7 +121,6 @@
   opacity: 1;
 }
 
-/* Glassmorphism Overlay */
 .overlay {
   position: absolute;
   top: 0;
@@ -129,7 +134,7 @@
   align-items: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  z-index: 6;
+  z-index: 2;
 }
 
 .overlayContent {
@@ -149,9 +154,11 @@
   flex-direction: column;
   gap: 5px;
 }
+
 .icon {
   font-size: 20px;
 }
+
 .smallBtn {
   padding: 5px;
   border: none;
@@ -165,27 +172,13 @@
   transform: translateX(-20px);
 }
 
-.imageWrapper:hover .btn1 {
-  animation: slideInLeft 0.4s forwards 0.2s;
-  border: none;
+.smallBtn:hover {
+  background: white;
+  color: black;
 }
 
-.btn1:hover,
-.btn1:focus {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-}
-
-.imageWrapper:hover .btn2 {
-  animation: slideInLeft 0.4s forwards 0.4s;
-}
-
-.btn2:hover,
-.btn2:focus {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
+.imageWrapper:hover .smallBtn {
+  animation: slideInLeft 0.4s forwards;
 }
 
 @keyframes slideInLeft {
@@ -206,7 +199,7 @@
   flex-direction: column;
   transform: translateY(-20px);
   justify-content: center;
-  z-index: 3;
+  z-index: 6;
   transition: 0.5s ease 0s;
   display: flex;
   flex-direction: column;
@@ -215,55 +208,54 @@
   align-items: center;
 }
 
-.addToCartBtn {
+.addToCartBtn,
+.buyNowBtn {
   width: 140px;
-  margin-top: 10px;
   padding: 10px 20px;
-  background: #56cfe1;
   color: white;
   border: none;
   border-radius: 20px;
   cursor: pointer;
   font-weight: 600;
   transition: background 0.3s ease-in-out;
-  animation: shake 5s infinite linear; /* Halved animation duration for double speed */
+  z-index: 6;
+}
+
+.addToCartBtn {
+  margin-top: 10px;
+  background: #56cfe1;
+  animation: shake 5s infinite linear;
+}
+
+.buyNowBtn {
+  margin-top: 15px;
+  background: rgb(34, 34, 34);
 }
 
 @keyframes shake {
-  20%, 100% {
-      transform: translateX(0);
+  20%,
+  100% {
+    transform: translateX(0);
   }
-  2%, 6%, 10%, 14%, 18% {
-      transform: translateX(-10px);
+  2%,
+  6%,
+  10%,
+  14%,
+  18% {
+    transform: translateX(-10px);
   }
-  4%, 8%, 12%, 16% {
-      transform: translateX(10px);
+  4%,
+  8%,
+  12%,
+  16% {
+    transform: translateX(10px);
   }
 }
 
-.addToCartBtn:hover {
-  background: #43bacc;
-}
-
-
-.buyNowBtn {
-  width: 140px;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: rgb(34, 34, 34);
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease-in-out;
-}
-
-
+.addToCartBtn:hover,
 .buyNowBtn:hover {
   background: #43bacc;
 }
-
 
 /* Text container */
 .textContainer {
@@ -277,9 +269,8 @@
 
 .cardTitle {
   font-family: Poppins, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
   line-height: 20px;
   color: rgb(34, 34, 34);
   text-align: left;
@@ -293,16 +284,9 @@
   width: 270px;
   font-family: Poppins;
   font-size: 14px;
-  font-stretch: 100%;
   font-weight: 400;
   color: rgb(105, 105, 105);
 }
-
-.smallBtn:hover {
-  background: white;
-  color: black;
-}
-
 
 /* Footer Text */
 .footerText {
@@ -315,7 +299,6 @@
   justify-self: center;
   width: 100%;
 }
-
 
 .LoadMoreBtn {
   height: 50px;
@@ -336,7 +319,7 @@
 .LoadMoreBtn::before {
   content: "";
   position: absolute;
-  top: 0;
+  top:0;
   left: -100%;
   width: 100%;
   height: 100%;
@@ -372,6 +355,6 @@
   top: 30px;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 100;
   font-size: 0.8rem;
 }

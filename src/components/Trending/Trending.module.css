@@ -70,11 +70,20 @@
   margin: 10px;
 }
 
+.tagContainer {
+  position: relative;
+  width: 100%;
+  height: 0px;
+}
+
 .tag {
   position: relative;
-  display: block;
-  top: 60px;
-  right: -90px;
+  display: flex;
+  justify-self: right;
+  top: 20px;
+  left: -20px;
+  font-size: 14px;
+  font-weight: 400;
   z-index: 20;
   padding: 8px;
   border-radius: 50%;
@@ -221,45 +230,10 @@
   animation: slideInTop 0.5s forwards 0.5s;
 }
 
-/* Text container */
-.textContainer {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-}
-
-.cardTitle {
-  font-family: Poppins, sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 20px;
-  color: rgb(34, 34, 34);
-  text-align: left;
-  margin: 0;
-}
-
-.cardPrice {
-  box-sizing: border-box;
-  display: block;
-  height: 23px;
-  width: 270px;
-  font-family: Poppins;
-  font-size: 14px;
-  font-stretch: 100%;
-  font-weight: 400;
-  color: rgb(105, 105, 105);
-}
-
 .smallBtn:hover {
   background: white;
   color: black;
 }
-
-
 
 .addToCartBtn {
   width: 140px;
@@ -321,6 +295,31 @@
   text-align: center;
   justify-self: center;
   width: 100%;
+}
+
+
+
+.cardTitle {
+  font-family: Poppins, sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  color: rgb(34, 34, 34);
+  text-align: left;
+  margin: 0;
+}
+
+.cardPrice {
+  box-sizing: border-box;
+  display: block;
+  height: 23px;
+  width: 270px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-stretch: 100%;
+  font-weight: 400;
+  color: rgb(105, 105, 105);
 }
 
 

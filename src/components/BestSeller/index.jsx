@@ -125,7 +125,7 @@ export default function BestSeller() {
     setSelectedSize("");
   };
 
-  const handleAddToCart = (card) => {
+  const handleAddToCart = (card, index) => {
     const cartItem = {
       title: card.title,
       price: card.price,
@@ -134,7 +134,7 @@ export default function BestSeller() {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(existingCart));
-    setPopup(index);
+    setPopup(index, card);
     setTimeout(() => {
       setPopup(null);
     }, 1000);
@@ -154,7 +154,8 @@ export default function BestSeller() {
         <div className={styles.cardsContainer}>
           {cards.map((card, index) => (
             <div key={index} className={styles.imgCard}>
-              {card.tag && (
+              <div className={styles.tagContainer}>
+                {card.tag && (
                   <div
                     className={styles.tag}
                     style={{ backgroundColor: card.tag.color }}
@@ -162,6 +163,7 @@ export default function BestSeller() {
                     {card.tag.name}
                   </div>
                 )}
+              </div>
               <div className={styles.imageWrapper}>
                 <img
                   src={card.image}
@@ -175,15 +177,14 @@ export default function BestSeller() {
                 />
                 <div className={styles.overlay}>
                   <div className={styles.overlayContent}>
-                    <div className={styles.topLeftButtons}>
-                      <button className={`${styles.smallBtn} ${styles.btn1}`}>
-                        <CiHeart className={styles.icon} />
-                      </button>
-                      <button className={`${styles.smallBtn} ${styles.btn2}`}>
-                        <TbArrowsCross className={styles.icon} />
-                      </button>
-                    </div>
-                    <div className={styles.overlay}></div>
+                    {/* <div className={styles.topLeftButtons}>
+                    <button className={`${styles.smallBtn} ${styles.btn1}`}>
+                      <CiHeart className={styles.icon} />
+                    </button>
+                    <button className={`${styles.smallBtn} ${styles.btn2}`}>
+                      <TbArrowsCross className={styles.icon} />
+                    </button>
+                  </div> */}
                     <div className={styles.centerButtons}>
                       <button
                         className={styles.addToCartBtn}
@@ -196,12 +197,12 @@ export default function BestSeller() {
                         onClick={() =>
                           localStorage.setItem(
                             "viewedItem",
-                            JSON.stringify(card)
+                            JSON.stringify(card, index)
                           )
                         }
                       >
                         <button className={styles.buyNowBtn}>Buy Now</button>
-                      </Link>
+                      </Link>{" "}
                     </div>
                     <p className={styles.footerText}>{card.sizes}</p>
                   </div>
@@ -209,7 +210,7 @@ export default function BestSeller() {
               </div>
               <div className={styles.textContainer}>
                 <h3 className={styles.cardTitle}>{card.title}</h3>
-                <p className={styles.cardPrice}>{card.price}</p>
+                <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
               </div>
               {popup === index && (
                 <div className={styles.popup}>Added to cart!</div>

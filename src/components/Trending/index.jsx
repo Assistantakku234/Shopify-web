@@ -28,10 +28,6 @@ const initialCards = [
     sizes: "S, M, L",
     description: "Comfortable and fashionable high waist jeans.",
     rating: "3.8",
-    tag: {
-      name: "Sale",
-      color: "#dc3545",
-    },
     category: "New-Arrival",
   },
   {
@@ -57,8 +53,8 @@ const initialCards = [
     description: "Elegant Cluse La Baheme rose gold watch.",
     rating: "3.5",
     tag: {
-      name: "Limited",
-      color: "#ffc107",
+      name: "Sale",
+      color: "#dc3545",
     },
     category: "New-Arrival",
   },
@@ -108,14 +104,16 @@ export default function Trending({ openPopup }) {
       <div className={styles.cardsContainer}>
         {cards.map((card, index) => (
           <div key={index} className={styles.imgCard}>
-            {card.tag && (
-              <div
-                className={styles.tag}
-                style={{ backgroundColor: card.tag.color }}
-              >
-                {card.tag.name}
-              </div>
-            )}
+            <div className={styles.tagContainer}>
+              {card.tag && (
+                <div
+                  className={styles.tag}
+                  style={{ backgroundColor: card.tag.color }}
+                >
+                  {card.tag.name}
+                </div>
+              )}
+            </div>
             <div className={styles.imageWrapper}>
               <img
                 src={card.image}
@@ -129,14 +127,14 @@ export default function Trending({ openPopup }) {
               />
               <div className={styles.overlay}>
                 <div className={styles.overlayContent}>
-                  <div className={styles.topLeftButtons}>
+                  {/* <div className={styles.topLeftButtons}>
                     <button className={`${styles.smallBtn} ${styles.btn1}`}>
                       <CiHeart className={styles.icon} />
                     </button>
                     <button className={`${styles.smallBtn} ${styles.btn2}`}>
                       <TbArrowsCross className={styles.icon} />
                     </button>
-                  </div>
+                  </div> */}
                   <div className={styles.centerButtons}>
                     <button
                       className={styles.addToCartBtn}

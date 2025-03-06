@@ -21,7 +21,7 @@ const initialCards = [
   {
     title: "Analogue Resin Strap",
     price: "30.00",
-    defaultImage: "/Resin Strap.jpg",
+    image: "/Resin Strap.jpg",
     hoverImage: "/Resin Strap02.jpg",
     sizes: "XS, S, M, L",
     category: "Shoes",
@@ -33,7 +33,7 @@ const initialCards = [
   {
     title: "Ridley High Waist",
     price: "36.00",
-    defaultImage: "/Ridley01.jpg",
+    image: "/Ridley01.jpg",
     hoverImage: "/Ridley02.jpg",
     sizes: "S, M, L",
     category: "Denim",
@@ -45,7 +45,7 @@ const initialCards = [
   {
     title: "Blush Beanie",
     price: "15.00",
-    defaultImage: "/Blush Beanie01.jpg",
+    image: "/Blush Beanie01.jpg",
     hoverImage: "/Blush Beanie02.jpg",
     sizes: "XS, S, M, L",
     category: "Hats",
@@ -57,7 +57,7 @@ const initialCards = [
   {
     title: "Cluse La Baheme Rose Gold",
     price: "45.00",
-    defaultImage: "/Gold01.jpg",
+    image: "/Gold01.jpg",
     hoverImage: "/Gold02.jpg",
     sizes: "One Size",
     category: "Women",
@@ -69,7 +69,7 @@ const initialCards = [
   {
     title: "Mercury Tee",
     price: "68.00",
-    defaultImage: "/Mercury01.jpg",
+    image: "/Mercury01.jpg",
     hoverImage: "/Mercury02.jpg",
     sizes: "S, M, L, XL, XXL",
     category: "Men",
@@ -81,7 +81,7 @@ const initialCards = [
   {
     title: "La Baheme Rose Gold",
     price: "40.00",
-    defaultImage: "/RoseGold01.jpg",
+    image: "/RoseGold01.jpg",
     hoverImage: "/RoseGold02.jpg",
     sizes: "XS, S, M, L",
     category: "Sale",
@@ -93,7 +93,7 @@ const initialCards = [
   {
     title: "Cream women pants",
     price: "35.00",
-    defaultImage: "/Women Pants01.jpg",
+    image: "/Women Pants01.jpg",
     hoverImage: "/Women Pants02.jpg",
     sizes: "S, M, L, XL, XXL",
     category: "Women",
@@ -105,7 +105,7 @@ const initialCards = [
   {
     title: "Black mountain hat",
     price: "35.00",
-    defaultImage: "/hat01.jpg",
+    image: "/hat01.jpg",
     hoverImage: "/hat02.jpg",
     sizes: "XS, S, M, L",
     category: "Hats",
@@ -119,7 +119,7 @@ const initialCards = [
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [selectedOption, setSelectedOption] = useState("Alphabetically, A-Z");
-    const [popup, setPopup] = useState(null);
+  const [popup, setPopup] = useState(null);
 
   const filteredCards = useMemo(() => {
     let filtered = [...initialCards];
@@ -198,17 +198,19 @@ const ProductsPage = () => {
       <div className={styles.cardsContainer}>
         {filteredCards.map((card, index) => (
           <div key={index} className={styles.imgCard}>
-          {card.tag && (
-              <div
-                className={styles.tag}
-                style={{ backgroundColor: card.tag.color }}
-              >
-                {card.tag.name}
-              </div>
-            )}
+            <div className={styles.tagContainer}>
+              {card.tag && (
+                <div
+                  className={styles.tag}
+                  style={{ backgroundColor: card.tag.color }}
+                >
+                  {card.tag.name}
+                </div>
+              )}
+            </div>
             <div className={styles.imageWrapper}>
               <img
-                src={card.defaultImage}
+                src={card.image}
                 alt={card.title}
                 className={styles.imageDefault}
               />
@@ -219,14 +221,14 @@ const ProductsPage = () => {
               />
               <div className={styles.cardOverlay}>
                 <div className={styles.overlayContent}>
-                  <div className={styles.topLeftButtons}>
+                  {/* <div className={styles.topLeftButtons}>
                     <button className={`${styles.smallBtn} ${styles.btn1}`}>
                       <CiHeart className={styles.icon} />
                     </button>
                     <button className={`${styles.smallBtn} ${styles.btn2}`}>
                       <TbArrowsCross className={styles.icon} />
                     </button>
-                  </div>
+                  </div> */}
                   <div className={styles.centerButtons}>
                     <button
                       className={styles.addToCartBtn}
@@ -234,7 +236,7 @@ const ProductsPage = () => {
                         const cartItem = {
                           title: card.title,
                           price: card.price,
-                          image: card.defaultImage,
+                          image: card.image,
                         };
                         const existingCart =
                           JSON.parse(localStorage.getItem("cart")) || [];
@@ -245,7 +247,7 @@ const ProductsPage = () => {
                         );
 
                         setPopup(index);
-                    
+
                         setTimeout(() => {
                           setPopup(null);
                         }, 1000);
