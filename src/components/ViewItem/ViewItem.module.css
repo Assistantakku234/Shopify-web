@@ -56,7 +56,7 @@
 }
 
 .mainImage {
-  max-width: 480px;
+  width: 480px;
   height: auto;
   position: relative;
   overflow: hidden;
