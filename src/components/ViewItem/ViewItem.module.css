@@ -221,13 +221,23 @@
 }
 
 .detailsTitle{
-  color:grey;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 400;
+  color:rgb(135, 135, 135);
+  line-height: 23.8px;
 }
 
 .productsizes {
+  margin:10px -5px 0;
+  padding:5px;
+  min-width: 30px;
+  min-height: 30px;
+  line-height: 18px;
   display: flex;
   gap: 10px;
   margin-top: 10px;
+  border-radius: 66px;
 }
 
 .sizeButton {
@@ -298,7 +308,7 @@
 .addToCart {
   padding: 10px 20px;
   border-radius: 25px;
-  background-color: skyblue;
+  background-color: hsl(197, 71%, 73%);
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -332,9 +342,39 @@
   margin-bottom: 10px;
 }
 
-.details p {
-  margin: 5px 0;
-  color: #333;
+.delivery:hover {
+  color: rgb(86, 207, 225)
+}
+
+.question:hover {
+  color: rgb(86, 207, 225)
+}
+
+.details{
+  margin-bottom: 15px;
+}
+
+.detailsInfo{
+  color: #000;
+}
+.detailsFashininfo{
+  color: #000;
+}
+
+.detailsFashininfo:hover{
+  color: rgb(86, 207, 225)
+}
+
+.detailprice:hover{
+  color: rgb(86, 207, 225)
+}
+
+.detailsVendor:hover{
+  color: rgb(86, 207, 225)
+}
+
+.category:hover{
+  color: rgb(86, 207, 225)
 }
 
 .inStock {
@@ -347,6 +387,8 @@
   gap: 15px;
   margin-top: 10px;
 }
+
+
 
 
 
@@ -375,21 +417,47 @@
   color: black;
 }
 
-.icon {
-  cursor: pointer;
-  transition: transform 0.3s ease, color 0.3s ease;
+.socialIcons {
+  display: flex;
+  gap: 15px;
+}
+
+.iconWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.icon:hover {
-  transform: translateY(-3px);
-  color: blue;
+.icon {
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.active {
-  transform: translateY(-5px);
-  color: blue;
+.icon:hover {
+  transform: translateY(-5px); /* Move icon up */
+  color: #007bff; /* Change color on hover */
 }
+
+.tooltip {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.iconWrapper:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-5px); /* Move tooltip up */
+}
+
 

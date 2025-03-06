@@ -256,21 +256,41 @@ const ViewItemPage = () => {
 
             </div>
             <div className={styles.infoSection}>
-              <span>Delivery & Return</span>
-              <span>Ask a Question</span>
+              <span className={styles.delivery}>Delivery & Return</span>
+              <span className={styles.question}>Ask a Question</span>
             </div>
             <div className={styles.details}>
-              <p className={styles.detailsTitle}>Availability: <span>In Stock</span></p>
-              <p>Categories: Fashion</p>
-              <p>Tags: Price $50-$150, Vendor Kalles, Women</p>
+              <p className={styles.detailsTitle}>Availability: <span className={styles.detailsInfo}>In Stock</span></p>
+              <p className={styles.detailsTitle}>Categories:<span className={styles.detailsFashininfo}> Fashion</span></p>
+              <p className={styles.detailsTitle}>Tags:
+                <span className={styles.detailsInfo}>
+                  <span className={styles.detailprice}>Price $50-$150</span>,
+                  <span className={styles.detailsVendor}>Vendor Kalles</span>,
+                  <span className={styles.category}>Women</span>
+                </span>
+              </p>
             </div>
             <div className={styles.socialIcons}>
-              <FaFacebookF size={20} />
-              <FaXTwitter size={20} />
-              <FaPinterestP size={20} />
-
-              <BsTelegram size={20} />
-              <MdEmail size={20} />
+              <div className={styles.iconWrapper}>
+                <FaFacebookF size={20} className={styles.icon} />
+                <span className={styles.tooltip}>Share on Facebook</span>
+              </div>
+              <div className={styles.iconWrapper}>
+                <FaXTwitter size={20} className={styles.icon} />
+                <span className={styles.tooltip}>Share on Twitter</span>
+              </div>
+              <div className={styles.iconWrapper}>
+                <FaPinterestP size={20} className={styles.icon} />
+                <span className={styles.tooltip}>Pin on Pinterest</span>
+              </div>
+              <div className={styles.iconWrapper}>
+                <BsTelegram size={20} className={styles.icon} />
+                <span className={styles.tooltip}>Share on Telegram</span>
+              </div>
+              <div className={styles.iconWrapper}>
+                <MdEmail size={20} className={styles.icon} />
+                <span className={styles.tooltip}>Send via Email</span>
+              </div>
             </div>
           </div>
         </div>
