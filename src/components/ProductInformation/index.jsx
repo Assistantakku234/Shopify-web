@@ -9,7 +9,7 @@ export default function ProductTabs() {
         <div className={styles.container}>
             {/* Tabs */}
             <div className={styles.tabs}>
-                {["Description", "Additional Information", "Custom tab", "Reviews"].map(
+                {["Description"].map(
                     (tab) => {
                         const tabKey = tab.toLowerCase().replace(/\s/g, "");
                         return (

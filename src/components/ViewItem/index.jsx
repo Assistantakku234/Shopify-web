@@ -3,13 +3,15 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import ProductTabs from "@/components/ProductInformation";
 import styles from "./ViewItem.module.css";
-import { CiFacebook, CiMail } from "react-icons/ci";
-import { FaXTwitter, FaPinterestP, FaTumblr } from "react-icons/fa";
+import { FaFacebookF } from "react-icons/fa";
+import { FaPinterestP } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
+import { MdEmail } from "react-icons/md";
 import { IoIosStar, IoIosStarOutline } from "react-icons/io";
 import { LiaStarHalf } from "react-icons/lia";
-
-
+import { CiHeart } from "react-icons/ci";
+import { TbArrowsCross } from "react-icons/tb";
 
 
 
@@ -71,22 +73,22 @@ const ViewItemPage = () => {
     const hasHalfStar = rating - fullStars >= 0.5;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
     const stars = [];
-  
+
     for (let i = 0; i < fullStars; i++) {
       stars.push(<span key={`full-${i}`} className={styles.star}><IoIosStar />
-</span>);
+      </span>);
     }
-  
+
     if (hasHalfStar) {
       stars.push(<span key="half" className={styles.halfStar}><LiaStarHalf />
-</span>);
+      </span>);
     }
-  
+
     for (let i = 0; i < emptyStars; i++) {
       stars.push(<span key={`empty-${i}`} className={styles.star}><IoIosStarOutline />
-</span>);
+      </span>);
     }
-  
+
     return <div>{stars}</div>;
   }
 
@@ -193,9 +195,8 @@ const ViewItemPage = () => {
                 {["S", "M", "L", "XL"].map((size) => (
                   <button
                     key={size}
-                    className={`${styles.sizeButton} ${
-                      selectedSize === size ? styles.activeSize : ""
-                    }`}
+                    className={`${styles.sizeButton} ${selectedSize === size ? styles.activeSize : ""
+                      }`}
                     onClick={() => setSelectedSize(size)}
                   >
                     {size}
@@ -242,6 +243,29 @@ const ViewItemPage = () => {
                   Add to Cart
                 </button>
               </Link>
+              <button className={styles.iconButton}>   < CiHeart size={20} strokeWidth={1.5} />  </button>
+              <button className={styles.iconButton}>< TbArrowsCross size={20} strokeWidth={1.5} /></button>
+            </div>
+            <div className={styles.securityIcons}>
+              <img src="/addtocart.jpg" />
+
+            </div>
+            <div className={styles.infoSection}>
+              <span>Delivery & Return</span>
+              <span>Ask a Question</span>
+            </div>
+            <div className={styles.details}>
+              <p><strong>Availability:</strong> <span className={styles.inStock}>In Stock</span></p>
+              <p><strong>Categories:</strong> Fashion</p>
+              <p><strong>Tags:</strong> Price $50-$150, Vendor Kalles, Women</p>
+            </div>
+            <div className={styles.socialIcons}>
+              <FaFacebookF size={20} />
+              <FaXTwitter size={20} />
+              <FaPinterestP size={20} />
+
+              <BsTelegram size={20} />
+              <MdEmail size={20} />
             </div>
           </div>
         </div>
