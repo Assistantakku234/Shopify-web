@@ -135,8 +135,12 @@
 }
 
 
-
-
+.connect {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 40px auto;
+}
 
 .textCard{
   height: 80px;
@@ -219,12 +223,13 @@
   .mobileCarousel {
     width: 100%;
   }
+
   .connect {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 40px auto;
+    flex-direction: column; 
+    gap: 30px;
+    align-items: flex-start;
   }
+
   .textCard {
     flex-direction: column;
     text-align: center;
