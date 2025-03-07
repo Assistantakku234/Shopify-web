@@ -1,4 +1,4 @@
-/* Section main content */
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,6 +6,7 @@
   justify-content: center;
   gap: 20px;
   margin: 100px auto;
+
 }
 
 .titleContainer {
@@ -386,25 +387,3 @@
   animation: fadeOut 2s ease-in-out forwards;
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-
-.popup {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  font-size: 0.8rem;
-}
