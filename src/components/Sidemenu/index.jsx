@@ -174,6 +174,12 @@ export default function Sidemenu() {
             ))}
 
             <div className={styles.actionButtons}>
+              <div className={styles.contact}>
+                <h5>Need Help?</h5>
+                <Link href="tel:+0123456789">+01 23456789</Link>
+                <Link href="mailto:kalles@domain.com">kalles@domain.com</Link>
+              </div>
+
               <button className={styles.actionBtn}>Buy Theme</button>
               <button className={styles.actionBtn}>
                 <Heart size={16} /> Wishlist

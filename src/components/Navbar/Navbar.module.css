@@ -1009,6 +1009,9 @@
 }
   
   @media only screen and (max-width: 450px) {
+    .navbar {
+      padding: 15px;
+    }
     .menu {
       display: none;
     }
