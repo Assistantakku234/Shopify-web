@@ -1,0 +1,214 @@
+.parentContainer {
+  background: #f8f9fa;
+}
+
+.menuHeader {
+  border-bottom: 1px solid rgba(129, 129, 129, 0.2);
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  background-color: rgba(135, 135, 135, 0.1);
+}
+
+.menuSwitch {
+  height: 50px;
+  width: 50%;
+  border: none;
+  background: transparent;
+  color: rgb(34, 34, 34);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Default underline effect for CATEGORIES */
+.menuSwitch:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: rgb(86, 207, 225);
+  transition: width 0.3s ease-in-out;
+}
+
+/* Reverse underline effect for MENU */
+.menuSwitch:nth-child(1)::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0; /* Start from the right */
+  width: 0%;
+  height: 2px;
+  background-color: rgb(86, 207, 225);
+  transition: width 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+/* Expand effect */
+.menuSwitch:nth-child(2).activeButton::after {
+  width: 100%;
+  left: 0;
+}
+
+.menuSwitch:nth-child(1).activeButton::after {
+  width: 100%;
+  right: 0; /* Expand towards the left */
+}
+
+.activeButton {
+  background-color: rgba(135, 135, 135, 0.15);
+}
+
+.sidebarContainer {
+  height: 100vh; /* Adjust as needed */
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* Auto hides scrollbar when not needed */
+  scroll-behavior: smooth;
+  padding-bottom: 60px;
+}
+
+/* Show scrollbar only when hovered */
+.sidebarContainer:hover {
+  overflow-y: scroll;
+}
+
+
+.sideMenuOpts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 15px 10px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.sideMenuOpts > a {
+  width: calc( 100% - 50px);
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.3s ease-in-out;
+}
+
+.sideMenuOpts:hover {
+  background-color: rgba(135, 135, 135, 0.15);
+}
+
+.dropDownBtn {
+  width: 35px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.dropDownBtn.active {
+  transform: rotate(45deg);
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  margin-top: 5px;
+  width: 100%;
+}
+
+.dropDown a {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: transparent;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  gap: 5px;
+  padding: 10px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.actionBtn {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  gap: 5px;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  cursor: pointer;
+}
+
+.actionBtn:hover {
+  background-color: rgba(135, 135, 135, 0.15);
+}
+
+.actionBtn svg {
+  height: 16px;
+  width: 16px;
+}
+
+.langSelect {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: transparent;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  gap: 5px;
+  padding: 10px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.categoryOpts {
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  padding: 5px 20px;
+  border-bottom: 1px solid #ddd;
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.categoryOpts:hover {
+  background-color: rgba(135, 135, 135, 0.15);
+}
+
+.categoryImg {
+  height: 30px;
+  width: 20px;
+  object-fit: cover;
+  border-radius: 3px;
+}
