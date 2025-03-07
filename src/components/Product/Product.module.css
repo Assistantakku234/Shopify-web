@@ -1,4 +1,4 @@
-/* Navbar Styles */
+
 .navbar {
   width: 100%;
   display: flex;
@@ -26,7 +26,7 @@
 
 .menu li a:hover,
 .menu li a.active {
-  color: #5bc0de; /* Light Blue Color for Active Link */
+  color: #5bc0de; 
 }
 
 /* Hero Section */
@@ -436,4 +436,53 @@
   transform: translate(-50%, -50%);
   z-index: 10;
   font-size: 0.8rem;
+}
+
+.mobile-menu {
+  display: none; 
+}
+
+@media (max-width: 450px) {
+  .navbar {
+    padding: 6px 8px;
+  }
+
+  .mobile-menu {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+  }
+
+  .menu {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu li {
+    font-size: 16px;
+    font-weight: 500;
+    color: #222;
+    cursor: pointer;
+    flex: 0 0 auto;
+    padding: 5px 10px;
+  }
+
+  .mobileOnly .arrow {
+    display: inline-block;
+  }
+
+
 }

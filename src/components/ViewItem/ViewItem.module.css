@@ -465,3 +465,32 @@
 }
 
 
+@media (max-width: 450px) {
+  .pageContainer {
+    padding: 5px; 
+  }
+
+  .productPage {
+    padding: 5px; 
+    font-size: 14px; 
+  }
+
+  
+    .breadcrumb {
+      margin-bottom: 5px; 
+      font-size: 12px; 
+      white-space: nowrap; 
+      overflow-x: auto; 
+    }
+
+    .productContainer {
+      flex-direction: column; 
+      align-items: center; 
+    }
+
+    .imagesContainer {
+      flex-direction: column; /* Stack images vertically */
+      align-items: center; /* Center images on smaller screens */
+    }
+}
+
