@@ -1,107 +1,105 @@
+.parentContainer {
+  display: flex;
+  width: 100% ;
+  height: auto;
+}
+
+
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 20px;
+  display: flex;
+  max-width: 840px;
+  width: auto ;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.leftSide {
+  display: flex;
+  max-width: 50%;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.leftSide img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.otherSide {
+  display: flex;
+  max-width: 50%;
+  padding: 10px;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  overflow: hidden;
+  gap: 20px;
+}
+
+.center img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.rightSide {
+  display: flex;
+  max-width: 50%;
+  overflow: hidden;
+}
+
+.rightSide img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+.button {
+  position: relative;
+  bottom: 0px;
+  z-index: 2;
+  height: 45px;
+  width: 150px;
+  color: rgb(34,34,34);
+  background-color: white;
+}
+
+.button:hover {
+  background-color: rgb(34,34,34);
+  color: white;
+}
+
+@media only screen and (max-width: 765px) {
+  .leftSide{
+    padding: 5px;
   }
 
-
-  .grid {
-    display: flex;
-    gap: 20px;
-    max-width: 1000px;
+  .otherSide{
+    padding: 5px;
+    gap: 10px;
   }
 
-
-  .women {
-    position: relative;
-    z-index: 3;
-    display: block;
-    width: 500px;
-    height: 500px;
-    overflow: hidden; 
-    vertical-align: top;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 23.8px;
+  .center{
+    gap: 10px;
   }
+}
 
 
-  
-.rightSection {
-    display: flex;
-    gap: 20px;
-  }
-
-  /* Accessories + Footwear (Left side of Watches) */
-.leftSubCategories {
-    display: flex;
+@media only screen and (max-width: 400px) {
+  .container {
     flex-direction: column;
-    gap: 20px;
   }
-  
-  /* Accessories */
-  .accessories,
-  .footwear,
-  .watches {
-    width: 200px;
-    height: 240px;
-    position: relative;
-    overflow: hidden; /* Prevents zoomed image from breaking out */
+  .leftSide {
+    max-width: 100%;
   }
-  
-  .watches {
-    width: 400px;
-    height: 500px;
+  .otherSide {
+    max-width: 100%;
   }
-  
-  /* Image Styling */
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 1s ease-in-out;
-  }
-  
-  /* Zoom effect only on image */
-  .image:hover {
-    transform: scale(1.1);
-  }
-  
-  /* Button Styling */
-  .button {
-    position: absolute; 
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: white;
-    padding: 8px 12px;
-    font-size: 14px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-  }
-  
-  .button:hover {
-    background-color: black;
-    color: white;
-  }
-
-  @media (max-width: 480px) {
-    .women {
-      width: 100%; /* Takes full width of the container */
-      max-width: 300px; /* Prevents it from getting too large */
-      height: auto; /* Keeps the aspect ratio */
-    }
-
-    .women .image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-  
-  
-  
+}

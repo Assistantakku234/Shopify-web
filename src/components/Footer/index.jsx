@@ -1,6 +1,7 @@
 "use client";
 import styles from "./Footer.module.css";
 import Image from "next/image";
+import Footermenu from "@/components/Footermenu";
 import Btt from "@/components/Btt";
 import {
   FaFacebookF,
@@ -14,6 +15,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <Btt/>
+      <Footermenu className={styles.shortFooter} />
       <div className={styles.footerContainer}>
         {/* Top Section */}
         <div className={styles.footerTop}>

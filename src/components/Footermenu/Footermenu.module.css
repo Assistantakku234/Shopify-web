@@ -1,11 +1,10 @@
-.footer {
-  min-height: 400px;
-  text-align: center;
-  justify-content: center;
+.ftMenuContainer {
+  background-color: rgb(248, 248, 248);
 }
 
-.shortFooter {
-  display: none;
+.footer {
+  text-align: center;
+  justify-content: center;
 }
 
 .footerContainer {
@@ -16,6 +15,7 @@
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgb(248, 248, 248);
 }
 
 .footerTop {
@@ -27,13 +27,13 @@
 .footerTopContainer {
   max-width: 1200px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   text-align: center;
-  padding: 75px 0px;
-  flex-wrap: wrap;
+  padding: 10px 0px;
   margin-left: auto;
   margin-right: auto;
+  background-color: rgb(248, 248, 248);
 }
 
 .footerSection {
@@ -42,8 +42,8 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
-  padding: 0px 15px;
-  margin-top: 30px;
+  padding: 10px;
+  margin-top: 10px;
 }
 
 .footerLogo {
@@ -61,7 +61,6 @@
   font-size: 34px;
   height: 50px;
 }
-
 
 .sectionBig {
   min-width: 300px;
@@ -100,7 +99,7 @@
 }
 
 .SocialIcons:hover {
-  transform: translateY(-5px); /* Icon moves up on hover */
+  transform: translateY(-5px);
 }
 
 .SocialIcons svg {
@@ -173,10 +172,11 @@
   border-style: solid;
   border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
 }
+
 .iconContainer:hover .tooltip {
   opacity: 1;
   visibility: visible;
-  transform: translateY(-5px); /* Moves tooltip up */
+  transform: translateY(-5px);
 }
 
 .footerSection h4 {
@@ -188,10 +188,11 @@
   font-size: 16px;
   font-weight: 500;
 }
+
 .footerSection ul {
   list-style: none;
   padding: 0;
-  text-align: center; /* Center list items */
+  text-align: center;
 }
 
 .footerSection ul li {
@@ -210,29 +211,6 @@
 .footerSection ul li:hover {
   color: rgb(86, 207, 225);
 }
-
-.column {
-  flex: 1;
-  min-width: 200px;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.address,
-.email,
-.phone {
-  font-size: 14px;
-  margin: 5px 0;
-}
-
-.socialIcons {
-  display: flex;
-  gap: 10px;
-}
-
 
 .inputContainer {
   position: relative;
@@ -273,10 +251,6 @@
   background: rgb(86, 207, 225);
 }
 
-
-
-
-
 .footerSection p {
   font-size: 14px;
   color: rgb(135, 135, 135);
@@ -288,23 +262,83 @@
   line-height: 24px;
   max-width: 300px;
 }
-.newsletter input {
-  text-align: center;
-}
 
-.newsletter button {
-  padding: 8px 15px;
-  background-color: black;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.paymentMethods {
+.sidebarContainer {
+  padding: 0px;
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  flex-direction: column;
+  padding-bottom: 60px;
+  background: #f8f9fa;
 }
+
+.sideMenuOpts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 5px;
+  padding: 15px 10px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.sideMenuOpts > a {
+  text-decoration: none;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  transition: color 0.3s ease-in-out;
+}
+
+.dropDownBtn {
+  width: 35px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.dropDownBtn.active {
+  transform: rotate(45deg);
+}
+
+.contact {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: transparent;
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  gap: 5px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+}
+
+.contact h5 {
+  color: rgb(34, 34, 34);
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.contact a {
+  color: rgb(135, 135, 135);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.contact a:hover {
+  color: rgb(86, 207, 225);
+}
+
 
 .footerBottom {
   width: 100%;
@@ -316,7 +350,7 @@
   margin-top: 20px;
   font-size: 14px;
   text-align: center;
-  padding-top: 10px;
+  padding: 10px 20px;
   margin-top: 15px;
   margin-right: auto;
   margin-bottom: 10px;
@@ -337,11 +371,9 @@
   color: rgb(86, 207, 225);
 }
 
-@media only screen and (max-width: 765px) {
-  .shortFooter{
-    display: flex;
-  }
-  .footerContainer{
-    display: none;
+
+@media only screen and (min-width: 765px) {
+  .ftMenuContainer {
+     display: none;
   }
 }
