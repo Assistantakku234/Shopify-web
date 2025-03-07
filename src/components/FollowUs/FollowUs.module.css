@@ -1,4 +1,4 @@
-/* FollowUs.module.css */
+
 
 .container {
   display: flex;
@@ -136,12 +136,7 @@
 
 
 
-.connect {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin: 40px auto;
-}
+
 
 .textCard{
   height: 80px;
@@ -178,4 +173,62 @@
   color: rgb(135, 135, 135);
   font-size: 13px;
   font-weight: 400;
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 30px auto; 
+    gap: 10px; 
+    padding: 0 10px;
+  }
+
+  .titleContainer {
+    margin: 20px auto; 
+    gap: 5px; 
+    padding: 0 10px;
+  }
+
+  .title {
+    font-size: 18px; 
+    gap: 5px;
+    flex-direction: column; 
+    text-align: center; 
+  }
+
+  .title h2 {
+    font-size: 18px; 
+    text-align: center; 
+  }
+
+  .titleContainer p {
+    line-height: 1.4; 
+    padding: 0 10px; 
+  }
+
+  .scrollWrapper {
+    justify-content: flex-start; 
+    padding: 5px;
+    overflow-x: scroll; 
+  }
+
+  .blogContainer {
+    padding: 10px; 
+    justify-content: flex-start; 
+  }
+
+  .mobileCarousel {
+    width: 100%;
+  }
+  .connect {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px auto;
+  }
+  .textCard {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+
 }

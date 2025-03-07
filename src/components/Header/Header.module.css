@@ -184,7 +184,7 @@
 }
 
 
-@media (max-width: 1024px) {
+@media (max-width: 450px) {
   .headerTopbar {
     flex-direction: column;
     align-items: center;
