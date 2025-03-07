@@ -4,9 +4,12 @@ import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Headertop from "@/components/Headertop";
 import Cart from "@/components/Cart";
+import Sidemenu from "@/components/Sidemenu";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingCart, User, Search, Heart, X } from "lucide-react";
+import { IoCloseOutline } from "react-icons/io5";
+import { RiMenu2Fill } from "react-icons/ri";
 import { FiSearch } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 
@@ -19,8 +22,10 @@ const Navbar = ({ cartItems }) => {
   const [password, setPassword] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
+  const [activeList, setActiveList] = useState("MENU");
   const [cartCount, setCartCount] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   const [localCartItems, setLocalCartItems] = useState([]);
 
   // Fetch cart data from localStorage when cartOpen changes
@@ -35,7 +40,6 @@ const Navbar = ({ cartItems }) => {
     }
   }, [cartOpen]);
 
-  
   const products = [
     {
       id: 1,
@@ -90,11 +94,17 @@ const Navbar = ({ cartItems }) => {
     setShowSearch(false);
   };
 
+  const toggleMenuPopup = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <>
       <Headertop />
-      <Header />
       <div className={styles.navbar}>
+        <button className={styles.hamburger} onClick={toggleMenuPopup}>
+          <RiMenu2Fill />
+        </button>
         <Image
           src="/Kalles.webp"
           alt="Women"
@@ -137,7 +147,9 @@ const Navbar = ({ cartItems }) => {
             <Search className={`${styles.icon} ${styles.iconHover}`} />
           </div>
           <div onClick={toggleLoginPopup}>
-            <User className={`${styles.icon} ${styles.iconHover}`} />
+            <User
+              className={`${styles.icon} ${styles.iconHover} ${styles.iconHide} `}
+            />
           </div>
           {/* <div className={styles.heartContainer}>
             <Link href="/User">
@@ -214,14 +226,15 @@ const Navbar = ({ cartItems }) => {
           <span className={styles.theTitle}>Login</span>
           <X className={styles.closeIcon} onClick={toggleLoginPopup} />
         </div>
-        
+
         <div className={styles.loginForm}>
           <div className={styles.sidebarContainer}>
             {/* Email Input */}
             <div className={styles.inputContainer}>
               <label
-                className={`${styles.label} ${isEmailFocused || email ? styles.shrink : ""
-                  }`}
+                className={`${styles.label} ${
+                  isEmailFocused || email ? styles.shrink : ""
+                }`}
               >
                 E-mail <span className={styles.mandatory}>*</span>
               </label>
@@ -238,8 +251,9 @@ const Navbar = ({ cartItems }) => {
             {/* Password Input */}
             <div className={styles.inputContainer}>
               <label
-                className={`${styles.label} ${isPasswordFocused || password ? styles.shrink : ""
-                  }`}
+                className={`${styles.label} ${
+                  isPasswordFocused || password ? styles.shrink : ""
+                }`}
               >
                 Password <span className={styles.mandatory}>*</span>
               </label>
@@ -288,13 +302,25 @@ const Navbar = ({ cartItems }) => {
         <Cart cartItems={localCartItems} />
       </div>
 
+      {/* Menu Popup */}
+      <div className={`${styles.menuPopup} ${showMenu ? styles.open : ""}`}>
+        <div className={styles.menuContainer}>
+          <Sidemenu/>
+        </div>
+        <IoCloseOutline
+          className={styles.menuCloseIcon}
+          onClick={toggleMenuPopup}
+        />
+      </div>
+
       {/* Overlay for Closing Popups */}
-      {(showSearch || showLogin || cartOpen) && (
+      {(showSearch || showLogin || cartOpen || showMenu) && (
         <div
           className={styles.overlay}
           onClick={() => {
             setShowSearch(false);
             setShowLogin(false);
+            setShowMenu(false);
             setCartOpen(false);
           }}
         />
