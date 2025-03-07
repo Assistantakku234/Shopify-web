@@ -89,7 +89,7 @@ const HeroCarousel = () => {
             />
           </div>
         ))}
-        
+
         <div className={styles.dotsContainer}>
           {images.map((_, index) => (
             <span
