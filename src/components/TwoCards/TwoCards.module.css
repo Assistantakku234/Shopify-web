@@ -1,4 +1,4 @@
-/* Section main content */
+
 .container {
   display: flex;
   flex-direction: row;
@@ -6,10 +6,10 @@
   justify-content: center;
   gap: 20px;
   margin-bottom: 110px;
-  margin-left: ;
+
 }
 
-/* Cards content */
+
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -43,6 +43,7 @@
   width: 550px;
   overflow: hidden;
   z-index: 1;
+  margin-top: 10px;
 }
 
 .rightImageWrapper p {
@@ -72,8 +73,8 @@
 }
 
 .twoOverlay h3, .twoOverlay p, .twoOverlay h2 {
-  margin: 5px 0; /* Add some spacing around the text */
-  padding: 0 10px; /* Add some padding to the text */
+  margin: 5px 0;
+  padding: 0 10px; 
 }
 
 .imageLeft {
@@ -106,7 +107,28 @@
 
 @media (max-width: 480px) {
   .container {
-   margin-top: ;
+    flex-direction: column;
+    gap: 20px; 
   }
 
+  .leftImageWrapper,
+  .rightImageWrapper {
+    width: 90%; 
+    max-width: 350px; 
+    height: 250px; 
+  }
+
+  .overlay {
+    height: 250px;
+    width: 100%;
+  }
+
+
+  .leftImageWrapper:hover .imageLeft {
+    transform: scale(1.2) rotate(5deg); 
+  }
+
+  .rightImageWrapper:hover .imageRight {
+    transform: translateY(-20px); /* Slightly smaller movement */
+  }
 }
