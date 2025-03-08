@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Trending from "@/components/Trending";
 import TwoCards from "@/components/TwoCards";
 import BestSeller from "@/components/BestSeller";
+import BottomPopup from "@/components/RandomPopup";
 import BlogSection from "@/components/BlogSection";
 import FollowUs from "@/components/FollowUs";
 import Footer from "@/components/Footer";
@@ -59,6 +60,7 @@ export default function Home() {
       <BestSeller openPopup={openPopup} />
       <BlogSection />
       <FollowUs />
+      <BottomPopup/>
       <Footer />
       {selectedProduct && (
         <QuickShopPopup
