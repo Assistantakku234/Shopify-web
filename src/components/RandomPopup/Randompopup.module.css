@@ -33,20 +33,10 @@
   flex-direction: column;
 }
 
-.title {
-  font-size: 16px;
-  margin-bottom: 5px;
-  cursor: pointer;
-}
-
-.title {
-  color: rgb(86, 207, 225)
-}
-
-.price,
-.sizes {
+.purchaseText {
   font-size: 14px;
-  color: #555;
+  font-weight: 400;
+  color: rgb(105, 105, 105);
   margin: 2px 0;
 }
 
@@ -62,4 +52,22 @@
   height: 100%;
   background-color:  rgb(86, 207, 225);
   transition: width 1s linear;
+}
+
+
+@media only screen and (max-width: 450px) {
+  .popup {
+    bottom: 70px;
+    width: 250px;
+  }
+  .content {
+    margin-bottom: 5px;
+  }
+  .image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 10px;
+  }
 }

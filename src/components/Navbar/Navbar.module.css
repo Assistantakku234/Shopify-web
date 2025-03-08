@@ -243,8 +243,10 @@
 }
 
 .cartContainer {
+  max-width: max-content;
   position: relative;
   cursor: pointer;
+  max-height: 24px;
 }
 
 .cartBadge {
@@ -1007,6 +1009,32 @@
 .menuCloseIcon:hover {
   background-color: rgb(86, 207, 225);
 }
+
+.BottomMenuPopup {
+  display: none;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  height: 55px;
+  padding: 10px;
+  background-color: white;
+  z-index: 20;
+}
+
+.BottomBtn {
+  height: 45px;
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.BottomBtn p {
+  color: rgb(34, 34, 34);
+  font-size: 10px;
+}
   
   @media only screen and (max-width: 450px) {
     .navbar {
@@ -1039,6 +1067,11 @@
       border: none;
       cursor: pointer;
       background-color: transparent;
+    }
+    .BottomMenuPopup {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
     }
   }
 
