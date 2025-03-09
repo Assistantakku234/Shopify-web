@@ -91,4 +91,123 @@
     background-color: #333;
 }
 
+/* Responsive Layout for Mobile */
+@media (max-width: 768px) {
+    .checkoutContainer {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .detailsSection {
+        flex: none;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    .form {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .input {
+        width: 100%;
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .summarySection {
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+/* Common Styling */
+.detailsSection {
+    flex: 2;
+    margin-right: 20px;
+}
+
+.form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.row {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.summarySection {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.coupons {
+    margin-bottom: 20px;
+}
+
+.orderSummary {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 15px;
+    background: white;
+    font-family: Arial, sans-serif;
+}
+
+.divider {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* Buttons */
+.continueButton {
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.continueButton:hover {
+    background-color: #333;
+}
+
+.applyButton {
+    background-color: #000;
+    color: #fff;
+    padding: 5px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.applyButton:hover {
+    background-color: #333;
+}
 

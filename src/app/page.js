@@ -16,6 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MobileNavbar from "@/components/mobileNav";
 import MobileViewProduct from "@/components/Mobileviewproduct";
+import InstagramSection from "@/components/ImageGallery";
 
 
 export default function Home() {
@@ -55,7 +56,7 @@ export default function Home() {
 
   return (
     <>
-     
+      <InstagramSection/>
       <MobileViewProduct/>
       <Navbar cartItems={getCartItemsForNavbar()} />
       <Hero />

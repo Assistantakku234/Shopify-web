@@ -13,76 +13,76 @@ const BottomPopup = () => {
   const isPaused = useRef(false); // Add a ref to track pause state
 
 
-const productsList = [
-  {
-    title: "Analogue Resin Strap",
-    image: "/Resin Strap.jpg",
-    hoverImage: "/Resin Strap02.jpg",
-    category: "Shoes",
-    NewArrival: true,
-  },
-  {
-    title: "Ridley High Waist",
-    image: "/Ridley01.jpg",
-    hoverImage: "/Ridley02.jpg",
-    category: "Denim",
-    NewArrival: true,
-  },
-  {
-    title: "Blush Beanie",
-    image: "/Blush Beanie01.jpg",
-    hoverImage: "/Blush Beanie02.jpg",
-    category: "Hats",
-    NewArrival: true,
-  },
-  {
-    title: "Cluse La Baheme Rose Gold",
-    image: "/Gold01.jpg",
-    hoverImage: "/Gold02.jpg",
-    category: "Women",
-    NewArrival: true,
-  },
-  {
-    title: "Mercury Tee",
-    image: "/Mercury01.jpg",
-    hoverImage: "/Mercury02.jpg",
-    category: "Men",
-    NewArrival: true,
-  },
-  {
-    title: "La Baheme Rose Gold",
-    image: "/RoseGold01.jpg",
-    hoverImage: "/RoseGold02.jpg",
-    category: "Sale",
-    NewArrival: true,
-  },
-  {
-    title: "Cream women pants",
-    image: "/Women Pants01.jpg",
-    hoverImage: "/Women Pants02.jpg",
-    category: "Women",
-    NewArrival: true,
-  },
-  {
-    title: "Black mountain hat",
-    image: "/hat01.jpg",
-    hoverImage: "/hat02.jpg",
-    category: "Hats",
-    NewArrival: true,
-  },
-];
+  const productsList = [
+    {
+      title: "Analogue Resin Strap",
+      image: "/Resin Strap.jpg",
+      hoverImage: "/Resin Strap02.jpg",
+      category: "Shoes",
+      NewArrival: true,
+    },
+    {
+      title: "Ridley High Waist",
+      image: "/Ridley01.jpg",
+      hoverImage: "/Ridley02.jpg",
+      category: "Denim",
+      NewArrival: true,
+    },
+    {
+      title: "Blush Beanie",
+      image: "/Blush Beanie01.jpg",
+      hoverImage: "/Blush Beanie02.jpg",
+      category: "Hats",
+      NewArrival: true,
+    },
+    {
+      title: "Cluse La Baheme Rose Gold",
+      image: "/Gold01.jpg",
+      hoverImage: "/Gold02.jpg",
+      category: "Women",
+      NewArrival: true,
+    },
+    {
+      title: "Mercury Tee",
+      image: "/Mercury01.jpg",
+      hoverImage: "/Mercury02.jpg",
+      category: "Men",
+      NewArrival: true,
+    },
+    {
+      title: "La Baheme Rose Gold",
+      image: "/RoseGold01.jpg",
+      hoverImage: "/RoseGold02.jpg",
+      category: "Sale",
+      NewArrival: true,
+    },
+    {
+      title: "Cream women pants",
+      image: "/Women Pants01.jpg",
+      hoverImage: "/Women Pants02.jpg",
+      category: "Women",
+      NewArrival: true,
+    },
+    {
+      title: "Black mountain hat",
+      image: "/hat01.jpg",
+      hoverImage: "/hat02.jpg",
+      category: "Hats",
+      NewArrival: true,
+    },
+  ];
 
-const nameData = [
-  "Suresh", "Rajesh", "Priya", "Anjali", "Vikram", "Anushka", "Arjun", "Kavita",
-  "Deepak", "Meena", "Rahul", "Shreya", "Aditya", "Akansha", "Gaurav", "Sneha",
-  "Raj", "Jyoti", "Amul", "Ritu",
-];
+  const nameData = [
+    "Suresh", "Rajesh", "Priya", "Anjali", "Vikram", "Anushka", "Arjun", "Kavita",
+    "Deepak", "Meena", "Rahul", "Shreya", "Aditya", "Akansha", "Gaurav", "Sneha",
+    "Raj", "Jyoti", "Amul", "Ritu",
+  ];
 
-const cityData = [
-  "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune",
-  "Ahmedabad", "Jaipur", "Lucknow", "Chandigarh", "Indore", "Bhopal", "Nagpur",
-  "Surat", "Vadodara", "Coimbatore", "Visakhapatnam", "Patna", "Kanpur",
-];
+  const cityData = [
+    "Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune",
+    "Ahmedabad", "Jaipur", "Lucknow", "Chandigarh", "Indore", "Bhopal", "Nagpur",
+    "Surat", "Vadodara", "Coimbatore", "Visakhapatnam", "Patna", "Kanpur",
+  ];
 
   const getRandomCard = () => {
     const randomIndex = Math.floor(Math.random() * productsList.length);

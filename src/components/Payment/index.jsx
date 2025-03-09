@@ -1,24 +1,29 @@
 "use client";
-import { useState } from "react";
+import Link from 'next/link';
+import { useState, useEffect } from "react";
 import styles from "./Payment.module.css";
 
-export default function Payment() {
-    const [quantities, setQuantities] = useState([1, 1]);
-    const [selectedPayment, setSelectedPayment] = useState("cod");
+const Payment = () => {
+    const [cartItems, setCartItems] = useState([]);
+    const [quantities, setQuantities] = useState([]);
+    const [selectedPayment, setSelectedPayment] = useState("cod"); // ✅ Default Payment Mode
 
-    const handleQuantityChange = (index, change) => {
-        setQuantities((prev) => {
-            const updated = [...prev];
-            updated[index] = Math.max(1, updated[index] + change);
-            return updated;
-        });
-    };
+    useEffect(() => {
+        const storedCart = JSON.parse(localStorage.getItem("selectedCart")) || [];
+        const storedQuantities = JSON.parse(localStorage.getItem("selectedQuantities")) || [];
+        setCartItems(storedCart);
+        setQuantities(storedQuantities);
+    }, []);
 
-    const prices = [1320, 1155];
-    const total = quantities.reduce((sum, qty, idx) => sum + qty * prices[idx], 0);
+    const totalItems = quantities.reduce((sum, qty) => sum + qty, 0);
+    const totalPrice = cartItems.reduce(
+        (sum, item, index) => sum + (item.price * (quantities[index] || 1)),
+        0
+    );
 
     return (
-        <div className={styles.container}>
+        <div className={styles.checkoutContainer}>
+            {/* ✅ Payment Section */}
             <div className={styles.cartSection}>
                 <h2>Choose payment mode</h2>
                 <div className={styles.paymentOptions}>
@@ -43,20 +48,39 @@ export default function Payment() {
                 <button className={styles.placeOrderBtn}>Place Order</button>
             </div>
 
+            {/* ✅ Order Summary Section (Dynamic Data) */}
             <div className={styles.summarySection}>
                 <div className={styles.coupons}>
                     <h4>Coupons and offers</h4>
                     <p>Save more with coupon and offers</p>
+                    <input type="text" placeholder="Enter coupon code" className={styles.input} />
+                    <button className={styles.applyButton}>Apply</button>
                 </div>
+
                 <div className={styles.orderSummary}>
-                    <h4>Order Summary</h4>
-                    <p>Items: {quantities.reduce((sum, qty) => sum + qty, 0)}</p>
-                    <p>Items total: ₹{total}</p>
-                    <p>Delivery fee: <span>Free</span></p>
-                    <h4>Total cost: ₹{total}/-</h4>
-                    <button className={styles.continueBtn}>Continue</button>
+                    <h3>Order Summary</h3>
+                    <hr className={styles.divider} />
+
+                    <div className={styles.row}>
+                        <span>Items</span>
+                        <span>{totalItems}</span>
+                    </div>
+
+                    <div className={styles.row}>
+                        <span className={styles.summaryItem}>Items total</span>
+                        <div className={styles.summaryItem}>{` ₹${totalPrice}`}</div>
+                    </div>
+
+                    <div className={styles.summaryItem}>Delivery fee:- <span className={styles.free}>Free</span></div>
+                    <div className={styles.totalCost}>{`Total cost:-  ₹${totalPrice} /-`}</div>
+
+                    <Link href="/Pay">
+                        <button className={styles.continueButton}>Continue</button>
+                    </Link>
                 </div>
             </div>
         </div>
     );
-}
+};
+
+export default Payment;
