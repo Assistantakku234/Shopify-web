@@ -468,7 +468,9 @@
   font-size: 16px;
 }
 
-@media (min-width: 768px) {
+
+
+@media only screen and (max-width: 765px) {
   .navbar {
     overflow-x: hidden;
   }
@@ -478,10 +480,6 @@
   .navButtonRight {
     display: none;
   }
-}
-
-
-@media only screen and (max-width: 765px) {
   .container {
     margin: 30px auto;
   }

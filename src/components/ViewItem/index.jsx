@@ -117,7 +117,12 @@ const ViewItemPage = () => {
       <div className={styles.productPage}>
         <div className={styles.breadcrumb}>Home &gt; {itemData.title}</div>
         <div className={styles.productContainer}>
+          <div className={styles.smallHeader}>
+            <h1 className={styles.productTitle}>{itemData.title}</h1>
+            <div className={styles.productPrice}>{`$${itemData.price}`}</div>
+          </div>
           <div className={styles.imagesContainer}>
+            {/* Thumbnail */}
             <div className={styles.imageGallery}>
               <div className={styles.thumbnail}>
                 {images.current.map((img, index) => (
@@ -135,7 +140,7 @@ const ViewItemPage = () => {
                 ))}
               </div>
             </div>
-
+            {/* Main Image */}
             <div
               className={styles.mainImageContainer}
               onMouseEnter={() => setIsZoomed(true)}
