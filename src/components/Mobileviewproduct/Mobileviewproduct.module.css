@@ -1,0 +1,38 @@
+.mobileOnly {
+    display: block; /* Show by default */
+  }
+  
+  @media (min-width: 768px) { /* Hide on desktop */
+    .mobileOnly {
+      display: none;
+    }
+  }
+  
+  .productContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  
+  .mainImage {
+    width: 90%;
+    max-width: 300px;
+    border-radius: 10px;
+  }
+  
+  .thumbnailContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+  }
+  

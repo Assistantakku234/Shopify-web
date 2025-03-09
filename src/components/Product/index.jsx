@@ -6,6 +6,7 @@ import { TbArrowsCross } from "react-icons/tb";
 
 
 import styles from "./Product.module.css";
+import MobileNavbar from "../mobileNav";
 
 
 const categories = [
@@ -151,6 +152,7 @@ const ProductsPage = () => {
         </ul>
       </nav>
 
+
       <div className={styles.wishlistHero}>
         <div className={styles.imageContainer}>
           <img src={selectedCategory.heroImage} alt={selectedCategory.name} />
@@ -248,5 +250,7 @@ const ProductsPage = () => {
     </>
   );
 };
+
+
 
 export default ProductsPage;
