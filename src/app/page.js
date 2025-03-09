@@ -14,8 +14,6 @@ import Footer from "@/components/Footer";
 import QuickShopPopup from "@/components/QuickShopPopup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import MobileNavbar from "@/components/mobileNav";
-import MobileViewProduct from "@/components/Mobileviewproduct";
 
 
 export default function Home() {
@@ -55,8 +53,6 @@ export default function Home() {
 
   return (
     <>
-     
-      <MobileViewProduct/>
       <Navbar cartItems={getCartItemsForNavbar()} />
       <Hero />
       <CategoryGrid />
