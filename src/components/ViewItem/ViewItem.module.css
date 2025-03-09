@@ -489,8 +489,8 @@
     }
 
     .imagesContainer {
-      flex-direction: column; /* Stack images vertically */
-      align-items: center; /* Center images on smaller screens */
+      flex-direction: column; 
+      align-items: center; 
     }
 }
 

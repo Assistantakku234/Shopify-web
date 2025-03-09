@@ -1,3 +1,4 @@
+import BlogCard from "../productCard";
 import styles from "./BlogSection.module.css";
 
 const BlogSection = () => {
@@ -33,6 +34,7 @@ const BlogSection = () => {
 
   return (
     <div className={styles.container}>
+
       <div className={styles.titleContainer}>
         <div className={styles.title}>
           <div className={styles.line}></div>
@@ -55,7 +57,6 @@ const BlogSection = () => {
                 <img src={post.image} alt={post.title} />
               </div>
             </div>
-
             <h3 className={styles.blogTitle}>{post.title}</h3>
             <p className={styles.blogMeta}>
               By {post.author} on {post.date}
@@ -64,7 +65,9 @@ const BlogSection = () => {
           </div>
         ))}
       </div>
+
     </div>
+
   );
 };
 

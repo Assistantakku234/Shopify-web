@@ -129,6 +129,7 @@
   }
 
   .rightImageWrapper:hover .imageRight {
-    transform: translateY(-20px); /* Slightly smaller movement */
+    transform: translateY(-20px); 
+    
   }
 }

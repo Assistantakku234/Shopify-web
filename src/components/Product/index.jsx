@@ -7,6 +7,7 @@ import { TbArrowsCross } from "react-icons/tb";
 
 import styles from "./Product.module.css";
 
+
 const categories = [
   { id: 1, name: "New Arrival", heroImage: "heroImages/Newarrival.jpg" },
   { id: 2, name: "Decor", heroImage: "heroImages/Decor.jpg" },
@@ -131,7 +132,6 @@ const ProductsPage = () => {
 
       <nav className={styles.navbar}>
         <ul className={styles.menu}>
-
           {categories.map((category) => (
             <li key={category.id}>
               <Link href="#" legacyBehavior>
@@ -241,6 +241,7 @@ const ProductsPage = () => {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
+
           </div>
         ))}
       </div>

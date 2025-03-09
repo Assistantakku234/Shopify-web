@@ -5,6 +5,7 @@ import { CiHeart } from "react-icons/ci";
 import { TbArrowsCross } from "react-icons/tb";
 import styles from "./Trending.module.css";
 
+
 const initialCards = [
   {
     title: "Analogue Resin Strap",
@@ -91,6 +92,7 @@ export default function Trending({ openPopup }) {
   };
 
   return (
+
     <div className={styles.container}>
       <div className={styles.titleContainer}>
         <div className={styles.title}>

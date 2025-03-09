@@ -13,6 +13,9 @@ import Footer from "@/components/Footer";
 import QuickShopPopup from "@/components/QuickShopPopup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ProductCard from "@/components/productCard";
+import Footermenu from "@/components/Footermenu";
+import Predu from "@/components/productCard";
 
 export default function Home() {
   const [cartItems, setCartItems] = useState([]);
@@ -51,6 +54,7 @@ export default function Home() {
 
   return (
     <>
+      
       <Navbar cartItems={getCartItemsForNavbar()} />
       <Hero />
       <CategoryGrid />
