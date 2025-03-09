@@ -58,7 +58,7 @@
 
 .imgCard {
   height: 420px;
-  min-width: 250px;
+  min-width: 150px;
   border-radius: 5px;
   display: flex;
   justify-content: center;
@@ -357,4 +357,90 @@
   transform: translate(-50%, -50%);
   z-index: 100;
   font-size: 0.8rem;
+}
+
+
+
+
+@media only screen and (max-width: 765px) {
+  .container {
+    margin: 30px auto;
+  }
+
+  .titleContainer {
+    margin: 2cqmin auto;
+  }
+
+  .imgCard {
+    height: auto;
+    max-width: 150px;
+    width:150px;
+  }
+
+  .cardsContainer {
+    margin-top: 20px;
+  }
+
+  .tag {
+    top: 5px;
+    left: -5px;
+    font-size: 10px;
+    font-weight: 200;
+    padding: 4px;
+  }
+
+  .imageWrapper {
+    width: 150px;
+    height: 192px;
+  }
+
+  /* Center Buttons */
+  .centerButtons {
+    gap: 5px;
+    top: 80%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: end;
+  }
+
+  .addToCartBtn {
+    width: 80px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .buyNowBtn {
+    width: 80px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  /* Footer Text */
+  .footerText {
+    bottom: 5px;
+    font-size: 10px;
+    font-weight: 200;
+  }
+
+  .textContainer {
+    height: auto;
+    width: 150px;
+  }
+
+
+  .cardTitle {
+    font-size: 10px;
+    font-weight: 500;
+
+  }
+
+  .cardPrice {
+    font-size: 10px;
+    font-weight: 400;
+  }
 }

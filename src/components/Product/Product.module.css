@@ -1,19 +1,32 @@
-
 .navbar {
   width: 100%;
+  max-width: 750px;
   display: flex;
-  justify-content: center;
-  padding: 10px 0;
-  background-color: white;
+  align-items: center;
+  padding: 10px 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: transparent;
   border-bottom: 1px solid #ddd;
+  overflow-x: auto;
+  white-space: nowrap;
+  scroll-behavior: smooth;
+}
+
+.navbar::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+.navbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
 .menu {
+  min-width: 700px;
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
   list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 .menu li a {
@@ -26,14 +39,13 @@
 
 .menu li a:hover,
 .menu li a.active {
-  color: #5bc0de; 
+  color: #5bc0de;
 }
 
-/* Hero Section */
 .wishlistHero {
   position: relative;
   width: 100%;
-  height: 215px; /* Adjust height as needed */
+  height: 215px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,27 +91,25 @@
   font-size: 16px;
 }
 
-/* Filter & Sorting Section */
 .filterContainer {
   display: flex;
   align-items: center;
   justify-content: right;
-  padding: 20px; /* Adjusted padding */
+  padding: 20px;
   background-color: white;
-  margin: 20px 0; /* Adjusted margin */
+  margin: 20px 0;
 }
 
-.sortDropdown { /* Added styles for sort dropdown */
+.sortDropdown {
   padding: 8px 12px;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 14px;
 }
 
-/* Grid Layout */
 .cardsContainer {
   max-width: 1160px;
-  margin: 20px auto; /* Centered and added margin */
+  margin: 20px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -133,7 +143,7 @@
 
 .imageWrapper {
   position: relative;
-  width: 100%; /* Use 100% of parent width */
+  width: 100%;
   height: 345px;
   overflow: hidden;
 }
@@ -142,12 +152,12 @@
 .imageHover {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Added object-fit cover */
+  object-fit: cover;
   transition: opacity 0.5s ease-in-out;
 }
 
 .imageDefault {
-  position: relative; /* Changed to relative */
+  position: relative;
   z-index: 1;
   opacity: 1;
 }
@@ -192,7 +202,6 @@
   opacity: 1;
 }
 
-/* Top Left Buttons */
 .topLeftButtons {
   position: absolute;
   top: 10px;
@@ -201,9 +210,11 @@
   flex-direction: column;
   gap: 5px;
 }
+
 .icon {
   font-size: 20px;
 }
+
 .smallBtn {
   padding: 5px;
   border: none;
@@ -251,7 +262,6 @@
   }
 }
 
-/* Center Buttons */
 .centerButtons {
   top: 50%;
   margin: auto;
@@ -288,7 +298,6 @@
   color: black;
 }
 
-/* Light Blue Button */
 .lightBlueBtn {
   height: 40px;
   width: 136px;
@@ -308,13 +317,12 @@
   animation: slideInTop 0.5s forwards 0.5s;
 }
 
-/* Text container */
 .textContainer {
-  padding: 10px; /* Added padding */
+  padding: 10px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items:flex-start;
   justify-content: flex-start;
   width: 100%;
 }
@@ -362,8 +370,6 @@
   }
 }
 
-
-/* Footer Text */
 .footerText {
   position: absolute;
   bottom: 10px;
@@ -375,8 +381,6 @@
   width: 100%;
 }
 
-
-
 .addToCartBtn {
   width: 140px;
   padding: 10px 20px;
@@ -387,25 +391,32 @@
   cursor: pointer;
   font-weight: 600;
   transition: background 0.3s ease-in-out;
-  animation: shake 5s infinite linear; /* Halved animation duration for double speed */
+  animation: shake 5s infinite linear;
 }
 
 @keyframes shake {
-  20%, 100% {
-      transform: translateX(0);
+  20%,
+  100% {
+    transform: translateX(0);
   }
-  2%, 6%, 10%, 14%, 18% {
-      transform: translateX(-10px);
+  2%,
+  6%,
+  10%,
+  14%,
+  18% {
+    transform: translateX(-10px);
   }
-  4%, 8%, 12%, 16% {
-      transform: translateX(10px);
+  4%,
+  8%,
+  12%,
+  16% {
+    transform: translateX(10px);
   }
 }
 
 .addToCartBtn:hover {
   background: #43bacc;
 }
-
 
 .buyNowBtn {
   width: 140px;
@@ -419,7 +430,6 @@
   font-weight: 600;
   transition: background 0.3s ease-in-out;
 }
-
 
 .buyNowBtn:hover {
   background: #43bacc;
@@ -438,6 +448,117 @@
   font-size: 0.8rem;
 }
 
+.navButtonLeft {
+  position: absolute;
+  left: 0px;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.navButtonRight {
+  position: absolute;
+  right: 0px;
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+@media (min-width: 768px) {
+  .navbar {
+    overflow-x: hidden;
+  }
+  .navButtonLeft {
+    display: none;
+  }
+  .navButtonRight {
+    display: none;
+  }
+}
 
 
+@media only screen and (max-width: 765px) {
+  .container {
+    margin: 30px auto;
+  }
 
+  .titleContainer {
+    margin: 2cqmin auto;
+  }
+
+  .imgCard {
+    height: auto;
+    width: 150px;
+  }
+
+  .cardsContainer {
+    margin-top: 20px;
+  }
+
+  .tag {
+    top: 5px;
+    left: -5px;
+    font-size: 10px;
+    font-weight: 200;
+    padding: 4px;
+  }
+
+  .imageWrapper {
+    width: 150px;
+    height: 192px;
+  }
+
+  /* Center Buttons */
+  .centerButtons {
+    gap: 5px;
+    top: 80%;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: end;
+  }
+
+  .addToCartBtn {
+    width: 80px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  .buyNowBtn {
+    width: 80px;
+    margin-top: 5px;
+    padding: 5px;
+    font-size: 10px;
+    font-weight: 400;
+  }
+
+  /* Footer Text */
+  .footerText {
+    bottom: 5px;
+    font-size: 10px;
+    font-weight: 200;
+  }
+
+  .textContainer {
+    height: auto;
+    width: 150px;
+  }
+
+
+  .cardTitle {
+    font-size: 10px;
+    font-weight: 500;
+
+  }
+
+  .cardPrice {
+    font-size: 10px;
+    font-weight: 400;
+  }
+}

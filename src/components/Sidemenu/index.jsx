@@ -33,7 +33,7 @@ export default function Sidemenu() {
   const menuItems = [
     {
       name: "Demo",
-      href: "/demo",
+      href: "/",
       dropdownLinks: ["/demo-1", "/demo-2", "/demo-3"],
     },
     {
@@ -43,7 +43,7 @@ export default function Sidemenu() {
     },
     {
       name: "Product",
-      href: "/product",
+      href: "/Product",
       dropdownLinks: ["/latest-products", "/top-rated", "/on-sale"],
     },
     {

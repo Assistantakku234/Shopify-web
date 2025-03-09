@@ -1,13 +1,9 @@
 "use client";
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 import { TbArrowsCross } from "react-icons/tb";
-
-
 import styles from "./Product.module.css";
-import MobileNavbar from "../mobileNav";
-
 
 const categories = [
   { id: 1, name: "New Arrival", heroImage: "heroImages/Newarrival.jpg" },
@@ -128,10 +124,55 @@ const ProductsPage = () => {
     }
   }, [selectedCategory, selectedOption]);
 
+  const navRef = useRef(null);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const scrollNav = (direction) => {
+    if (navRef.current) {
+      navRef.current.scrollLeft += direction * 100;
+    }
+  };
+
+  const handleTouchStart = (e) => {
+    const touchStartX = e.touches[0].clientX;
+    const handleTouchMove = (moveEvent) => {
+      const touchMoveX = moveEvent.touches[0].clientX;
+      const deltaX = touchStartX - touchMoveX;
+      if (navRef.current) {
+        navRef.current.scrollLeft += deltaX;
+      }
+    };
+
+    const handleTouchEnd = () => {
+      navRef.current.removeEventListener("touchmove", handleTouchMove);
+      navRef.current.removeEventListener("touchend", handleTouchEnd);
+    };
+
+    navRef.current.addEventListener("touchmove", handleTouchMove);
+    navRef.current.addEventListener("touchend", handleTouchEnd);
+  };
+
   return (
     <>
-
-      <nav className={styles.navbar}>
+      <nav
+        className={styles.navbar}
+        ref={navRef}
+        onTouchStart={handleTouchStart}
+      >
+        <button className={styles.navButtonLeft} onClick={() => scrollNav(-1)}>
+          &lt;
+        </button>
         <ul className={styles.menu}>
           {categories.map((category) => (
             <li key={category.id}>
@@ -150,8 +191,10 @@ const ProductsPage = () => {
             </li>
           ))}
         </ul>
+        <button className={styles.navButtonRight} onClick={() => scrollNav(1)}>
+          &gt;
+        </button>
       </nav>
-
 
       <div className={styles.wishlistHero}>
         <div className={styles.imageContainer}>
@@ -210,12 +253,9 @@ const ProductsPage = () => {
                             price: card.price,
                             image: card.image,
                           };
-                          // take the old cart or create an empty array
                           const existingCart =
                             JSON.parse(localStorage.getItem("cart")) || [];
-                          // add new item
                           existingCart.push(cartItem);
-                          // save in local storage
                           localStorage.setItem(
                             "cart",
                             JSON.stringify(existingCart)
@@ -233,7 +273,7 @@ const ProductsPage = () => {
                       }
                     >
                       <button className={styles.buyNowBtn}>Buy Now</button>
-                    </Link>{" "}
+                    </Link>
                   </div>
                   <p className={styles.footerText}>{card.sizes}</p>
                 </div>
@@ -243,14 +283,11 @@ const ProductsPage = () => {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
-
           </div>
         ))}
       </div>
     </>
   );
 };
-
-
 
 export default ProductsPage;
