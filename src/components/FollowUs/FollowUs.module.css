@@ -284,9 +284,4 @@
   }
 }
 
-/* Hide on Desktop */
-@media screen and (min-width: 769px) {
-  .container {
-    display: none;
-  }
-}
+
