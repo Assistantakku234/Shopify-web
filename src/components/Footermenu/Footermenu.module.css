@@ -282,7 +282,7 @@
   position: relative;
 }
 
-.sideMenuOpts > a {
+.sideMenuOpts > h3 {
   text-decoration: none;
   color: rgb(34, 34, 34);
   font-size: 14px;

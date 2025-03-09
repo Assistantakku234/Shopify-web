@@ -22,7 +22,7 @@ export default function Footermenu() {
     <div className={styles.ftMenuContainer}>
       {/* Get In Touch */}
       <div className={styles.sideMenuOpts}>
-        <Link href="/services">Get in touch</Link>
+        <h3>Get in touch</h3>
         <button
           className={`${styles.dropDownBtn} ${
             openDropdown === "services" ? styles.active : ""
@@ -70,7 +70,7 @@ export default function Footermenu() {
       </div>
       {/* Categories */}
       <div className={styles.sideMenuOpts}>
-        <Link href="/about-us">Categories</Link>
+        <h3>Categories</h3>
         <button
           className={`${styles.dropDownBtn} ${
             openDropdown === "categories" ? styles.active : ""
@@ -94,7 +94,7 @@ export default function Footermenu() {
       </div>
       {/* Information */}
       <div className={styles.sideMenuOpts}>
-        <Link href="/resources">Information</Link>
+        <h3>Information</h3>
         <button
           className={`${styles.dropDownBtn} ${
             openDropdown === "information" ? styles.active : ""
@@ -118,7 +118,7 @@ export default function Footermenu() {
       </div>
       {/* Useful links */}
       <div className={styles.sideMenuOpts}>
-        <Link href="/contact">Useful links</Link>
+        <h3>Useful links</h3>
         <button
           className={`${styles.dropDownBtn} ${
             openDropdown === "useful-links" ? styles.active : ""
@@ -141,7 +141,7 @@ export default function Footermenu() {
       </div>
       {/* NewsLetter Signup */}
       <div className={styles.sideMenuOpts}>
-        <Link href="/newsletter">NewsLetter Signup</Link>
+        <h3>NewsLetter Signup</h3>
         <button
           className={`${styles.dropDownBtn} ${
             openDropdown === "newsletter" ? styles.active : ""

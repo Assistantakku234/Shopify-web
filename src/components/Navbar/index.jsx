@@ -305,12 +305,62 @@ const Navbar = ({ cartItems }) => {
       {/* Menu Popup */}
       <div className={`${styles.menuPopup} ${showMenu ? styles.open : ""}`}>
         <div className={styles.menuContainer}>
-          <Sidemenu/>
+          <Sidemenu />
         </div>
         <IoCloseOutline
           className={styles.menuCloseIcon}
           onClick={toggleMenuPopup}
         />
+      </div>
+
+      {/* Bottom Menu Popup */}
+      <div className={styles.BottomMenuPopup}>
+        <Link href="/Product" className={styles.BottomBtn}>
+          <span
+            className={`${styles.icon} ${styles.iconHover}`}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: "24px",
+              height: "24px",
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="feather feather-grid"
+            >
+              <rect x="3" y="3" width="7" height="7" />
+              <rect x="14" y="3" width="7" height="7" />
+              <rect x="14" y="14" width="7" height="7" />
+              <rect x="3" y="14" width="7" height="7" />
+            </svg>
+          </span>
+          <p>Shop</p>
+        </Link>
+        <div className={styles.BottomBtn} onClick={toggleCartPopup}>
+          <div className={styles.cartContainer}>
+            <ShoppingCart className={`${styles.icon} ${styles.iconHover}`} />
+            <span className={styles.cartBadge}>{cartCount}</span>
+          </div>
+          <p>Cart</p>
+        </div>
+        <div onClick={toggleLoginPopup} className={styles.BottomBtn}>
+          <User className={`${styles.icon} ${styles.iconHover}`} />
+          <p>Account</p>
+        </div>
+        <div onClick={toggleSearchPopup} className={styles.BottomBtn}>
+          <Search className={`${styles.icon} ${styles.iconHover}`} />
+          <p>Search</p>
+        </div>
       </div>
 
       {/* Overlay for Closing Popups */}
