@@ -105,7 +105,7 @@ const FollowUs = () => {
         </div>
         <div className={styles.textCard}>
           <svg
-            
+
             viewBox="0 0 32 32"
             width="32"
             height="32"
