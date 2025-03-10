@@ -9,7 +9,6 @@ import BottomPopup from "@/components/RandomPopup";
 import BlogSection from "@/components/BlogSection";
 import FollowUs from "@/components/FollowUs";
 import Footer from "@/components/Footer";
-import QuickShopPopup from "@/components/QuickShopPopup";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { CartProvider, useCart } from "@/contexts/CartContext"; // Assuming you create a CartContext
@@ -19,19 +18,6 @@ function HomePageContent() { // Extracted page content to a separate component
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedSize, setSelectedSize] = useState(null);
-
-  const handleAddToCart = useCallback(
-    (item) => {
-      addToCart({
-        title: item.title,
-        selectedSize: item.selectedSize || "N/A",
-        price: item.price || "N/A",
-        imageUrl: item.imageUrl || "/fallback-image.jpg",
-      });
-      toast.success("Item added to cart");
-    },
-    [addToCart]
-  );
 
   const openPopup = useCallback((product) => {
     setSelectedProduct(product);
@@ -43,13 +29,6 @@ function HomePageContent() { // Extracted page content to a separate component
     setIsPopupOpen(false);
   }, []);
 
-  const handleAddToCartAndClose = useCallback(
-    (item) => {
-      handleAddToCart(item);
-      closePopup();
-    },
-    [handleAddToCart, closePopup]
-  );
 
   return (
     <>
@@ -62,19 +41,6 @@ function HomePageContent() { // Extracted page content to a separate component
       <FollowUs />
       <BottomPopup />
       <Footer />
-      {selectedProduct && (
-        <QuickShopPopup
-          isOpen={isPopupOpen}
-          onClose={closePopup}
-          imageUrl={selectedProduct.imageUrl}
-          title={selectedProduct.title}
-          description={selectedProduct.description}
-          sizes={selectedProduct.sizes}
-          selectedSize={selectedSize}
-          setSelectedSize={setSelectedSize}
-          addToCart={handleAddToCartAndClose}
-        />
-      )}
       <ToastContainer />
     </>
   );

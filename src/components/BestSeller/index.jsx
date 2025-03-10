@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { CiHeart } from "react-icons/ci";
 import { TbArrowsCross } from "react-icons/tb";
-import QuickShopPopup from "@/components/QuickShopPopup";
 import styles from "./Bestseller.module.css";
 
 const cardsData = [
