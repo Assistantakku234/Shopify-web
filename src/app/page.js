@@ -15,8 +15,6 @@ import QuickShopPopup from "@/components/QuickShopPopup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import BlogCard from "@/components/productCard";
-
 
 
 
@@ -58,10 +56,6 @@ export default function Home() {
 
   return (
     <>
-
-      
-       
-      <BlogCard/>
       <Navbar cartItems={getCartItemsForNavbar()} />
       <Hero />
       <CategoryGrid />
