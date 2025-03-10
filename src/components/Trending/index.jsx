@@ -5,7 +5,6 @@ import { CiHeart } from "react-icons/ci";
 import { TbArrowsCross } from "react-icons/tb";
 import styles from "./Trending.module.css";
 
-
 const initialCards = [
   {
     title: "Analogue Resin Strap",
@@ -63,7 +62,7 @@ const initialCards = [
 
 export default function Trending({ openPopup }) {
   const [cards, setCards] = useState(initialCards);
-  const [popup, setPopup] = useState(null);
+    const [popup, setPopup] = useState(null);
 
   const loadMoreCards = () => {
     const newCards = initialCards.map((card, index) => ({
@@ -83,16 +82,13 @@ export default function Trending({ openPopup }) {
     const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
     existingCart.push(cartItem);
     localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    setPopup(index);
-
+    setPopup(index, card);
     setTimeout(() => {
       setPopup(null);
-    }, 1000);
+    }, 3000);
   };
 
   return (
-
     <div className={styles.container}>
       <div className={styles.titleContainer}>
         <div className={styles.title}>
@@ -129,14 +125,6 @@ export default function Trending({ openPopup }) {
               />
               <div className={styles.overlay}>
                 <div className={styles.overlayContent}>
-                  {/* <div className={styles.topLeftButtons}>
-                    <button className={`${styles.smallBtn} ${styles.btn1}`}>
-                      <CiHeart className={styles.icon} />
-                    </button>
-                    <button className={`${styles.smallBtn} ${styles.btn2}`}>
-                      <TbArrowsCross className={styles.icon} />
-                    </button>
-                  </div> */}
                   <div className={styles.centerButtons}>
                     <button
                       className={styles.addToCartBtn}
@@ -161,9 +149,26 @@ export default function Trending({ openPopup }) {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
-            {popup === index && (
-              <div className={styles.popup}>Added to cart!</div>
-            )}
+              {popup === index && (
+                <div className={styles.popupContainer}>
+                  <div className={styles.popupCard}>
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupDetails}>
+                      <strong>{card.title}</strong>
+                      <p className={styles.popupText}>
+                        added to cart!
+                      </p>
+                      <Link href="./Check">
+                        <button className={styles.checkoutBtn}>Checkout</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
           </div>
         ))}
       </div>

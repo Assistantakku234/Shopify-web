@@ -118,7 +118,6 @@
 .imgCard {
   width: 270px;
   margin: 10px;
-  overflow: hidden;
 }
 
 .tagContainer {
@@ -200,66 +199,6 @@
 
 .imageWrapper:hover .cardOverlay {
   opacity: 1;
-}
-
-.topLeftButtons {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.icon {
-  font-size: 20px;
-}
-
-.smallBtn {
-  padding: 5px;
-  border: none;
-  background: transparent;
-  color: white;
-  font-size: 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.imageWrapper:hover .btn1 {
-  animation: slideInLeft 0.4s forwards 0.2s;
-  border: none;
-}
-
-.btn1:hover,
-.btn1:focus {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-}
-
-.imageWrapper:hover .btn2 {
-  animation: slideInLeft 0.4s forwards 0.4s;
-}
-
-.btn2:hover,
-.btn2:focus {
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
 }
 
 .centerButtons {
@@ -435,19 +374,6 @@
   background: #43bacc;
 }
 
-.popup {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 10;
-  font-size: 0.8rem;
-}
-
 .navButtonLeft {
   position: absolute;
   left: 0px;
@@ -468,6 +394,71 @@
   font-size: 16px;
 }
 
+
+/* Custom Add-to-Cart Popup */
+.popupContainer {
+  position: relative;
+  height: 1px;
+}
+.popupCard {
+  position: relative;
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 100;
+  animation: fadeIn 0.3s ease-in-out;
+  width: auto;
+  max-width: 270px;
+  min-height: 100px;
+}
+
+.popupImage {
+  width: 60px;
+  min-height: 100px;
+  object-fit: cover;
+}
+
+.popupTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.checkoutBtn {
+  width: 140px;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  background: rgb(34, 34, 34);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.checkoutBtn:hover {
+  background-color: #43bacc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
 
 
 @media only screen and (max-width: 765px) {
