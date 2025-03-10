@@ -110,6 +110,9 @@ export default function CheckoutUI() {
                     <div className={styles.coupons}>
                         <h4>Coupons and offers</h4>
                         <p>Save more with coupon and offers</p>
+                        <input type="text" placeholder="Enter coupen code" className={styles.input} />
+                        <button className={styles.applyButton}>Apply</button>
+
                     </div>
                     <div className={styles.orderSummary}>
                         <h4 className={styles.orderHeading}>Order Summary</h4>

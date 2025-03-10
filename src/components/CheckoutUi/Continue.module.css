@@ -216,7 +216,7 @@
   background-color: #333;
 }
 
-/* Mobile view */
+
 @media (max-width: 450px) {
   .mainContainer {
     flex-direction: column; 
@@ -301,9 +301,6 @@
     margin-left: 0;  
   }
 
-  .summarySection {
-    padding: 10px; 
-  }
   .form {
     gap: 5px; 
   }
@@ -312,15 +309,44 @@
     padding: 12px;
   }
 
+  .summarySection {
+    padding: 15px; 
+    margin: 10px 0; 
+    flex: 0 1 100%; 
+  }
+
   .coupons {
-    margin-bottom: 10px; 
+    margin-bottom: 15px; 
+  }
+
+  .applyButton {
+    font-size: 16px; 
+    margin: 8px; 
+    width: 90%; 
   }
 
   .orderSummary {
-    padding: 10px; 
-    font-size: 12px; 
+    padding: 15px; 
+    margin: 10px 0;
   }
 
-  
+  .summaryItem {
+    flex-direction: column;  
+    font-size: 12px;        
+  }
+
+  .totalCost {
+    flex-direction: column;   
+    font-size: 14px;         
+    align-items: flex-start;  
+    margin: 8px 0;            
+  }
+
+  .continueButton {
+    font-size: 16px; 
+    margin: 8px; 
+    width: 90%; 
+  }
+ 
 
 }
