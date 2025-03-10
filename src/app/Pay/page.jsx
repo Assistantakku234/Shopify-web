@@ -8,11 +8,8 @@ import Payment from "@/components/Payment";
 
 const Pay = () => {
     return <>
-        <Navbar />
         <Payment />
         <Footer />
-
-
     </>
 };
 

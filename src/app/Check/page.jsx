@@ -6,7 +6,6 @@ import Navbar from "@/components/Navbar";
 
 const Check = () => {
     return <>
-        <Navbar />
         <CheckoutUI />
         <Footer />
     </>

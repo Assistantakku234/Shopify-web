@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 
 const Product = () => {
   return <>
-    <Navbar />
     <ProductsPage />
     <Footer />
   </>

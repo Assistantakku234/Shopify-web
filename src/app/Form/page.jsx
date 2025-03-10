@@ -7,11 +7,8 @@ import CheckoutForm from "@/components/CheckoutForm";
 
 const Form = () => {
     return <>
-        <Navbar />
         <CheckoutForm />
         <Footer />
-
-
     </>
 };
 

@@ -22,6 +22,17 @@
   scrollbar-width: none; /* Firefox */
 }
 
+
+.navbar {
+  overflow-x: hidden;
+}
+.navButtonLeft {
+  display: none;
+}
+.navButtonRight {
+  display: none;
+}
+
 .menu {
   min-width: 700px;
   display: flex;
@@ -465,7 +476,7 @@
   }
 
   .titleContainer {
-    margin: 2cqmin auto;
+    margin: 2px;
   }
 
   .imgCard {
@@ -539,13 +550,13 @@
   }
 
   .navbar {
-    overflow-x: hidden;
+    overflow-x: auto;
   }
   .navButtonLeft {
-    display: none;
+    display: flex;
   }
   .navButtonRight {
-    display: none;
+    display: flex;
   }
   .popupCard {
     top: -100px;
