@@ -79,7 +79,7 @@ export default function CheckoutUI() {
 
                     {cartItems.length > 0 ? (
                         cartItems.map((item, index) => (
-                            <div key={item.id} className={styles.cartItem}>
+                            <div key={`${item.id}-${index}`} className={styles.cartItem}>
                                 <img src={item.image} alt={item.title} />
                                 <div>
                                     <h3>{item.title}</h3>
@@ -127,7 +127,7 @@ export default function CheckoutUI() {
                         </div>
 
                         <div className={styles.summaryItem}>Delivery fee:- <span className={styles.free}>Free</span></div>
-                        <div className={styles.totalCost}>{`Total cost:-  ₹${totalPrice} /-`}</div>
+                        <div className={styles.totalCost}>{`Total cost:-  ₹${totalPrice} /-`}</div>
 
                         <p className={styles.taxInfo}>Inclusive of all taxes</p>
                         <Link href="/Form">
