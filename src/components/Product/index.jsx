@@ -6,7 +6,7 @@ import { TbArrowsCross } from "react-icons/tb";
 import styles from "./Product.module.css";
 
 const categories = [
-  { id: 1, name: "New Arrival", heroImage: "heroImages/Newarrival.jpg" },
+  { id: 1, name: "New Arrival", heroImage: "heroImages/Denim.jpg" },
   { id: 2, name: "Decor", heroImage: "heroImages/Decor.jpg" },
   { id: 3, name: "Denim", heroImage: "heroImages/Denim.jpg" },
   { id: 4, name: "Dress", heroImage: "heroImages/Dress.jpg" },
@@ -96,7 +96,7 @@ const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [selectedOption, setSelectedOption] = useState("Alphabetically, A-Z");
   const [popup, setPopup] = useState(null);
-  
+
 
   const filteredCards = useMemo(() => {
     let filtered = [...initialCards];
@@ -146,7 +146,7 @@ const ProductsPage = () => {
     }
   };
 
-  
+
   const handleAddToCart = (card, index) => {
     const cartItem = {
       title: card.title,
@@ -254,12 +254,12 @@ const ProductsPage = () => {
               <div className={styles.cardOverlay}>
                 <div className={styles.overlayContent}>
                   <div className={styles.centerButtons}>
-                      <button
-                        className={styles.addToCartBtn}
-                        onClick={() => handleAddToCart(card, index)}
-                      >
-                        Add to Cart
-                      </button>
+                    <button
+                      className={styles.addToCartBtn}
+                      onClick={() => handleAddToCart(card, index)}
+                    >
+                      Add to Cart
+                    </button>
                     <Link
                       href="/ViewItem"
                       onClick={() =>
@@ -277,26 +277,26 @@ const ProductsPage = () => {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
-              {popup === index && (
-                <div className={styles.popupContainer}>
-                  <div className={styles.popupCard}>
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className={styles.popupImage}
-                    />
-                    <div className={styles.popupDetails}>
-                      <strong>{card.title}</strong>
-                      <p className={styles.popupText}>
-                        added to cart!
-                      </p>
-                      <Link href="./Check">
-                        <button className={styles.checkoutBtn}>Checkout</button>
-                      </Link>
-                    </div>
+            {popup === index && (
+              <div className={styles.popupContainer}>
+                <div className={styles.popupCard}>
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className={styles.popupImage}
+                  />
+                  <div className={styles.popupDetails}>
+                    <strong>{card.title}</strong>
+                    <p className={styles.popupText}>
+                      added to cart!
+                    </p>
+                    <Link href="./Check">
+                      <button className={styles.checkoutBtn}>Checkout</button>
+                    </Link>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
           </div>
         ))}
       </div>
