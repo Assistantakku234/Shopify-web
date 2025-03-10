@@ -1,5 +1,3 @@
-
-// contexts/CartContext.js - Example Cart Context
 "use client";
 import React, { createContext, useState, useContext, useCallback } from "react";
 

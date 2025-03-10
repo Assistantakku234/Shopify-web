@@ -1,6 +1,6 @@
 "use client";
-import styles from "./Followus.module.css";
 import { useRef } from "react";
+import styles from "./Follow.module.css";
 
 const FollowUs = () => {
   const blogPosts = [
