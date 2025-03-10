@@ -60,12 +60,17 @@ const Payment = () => {
                 <div className={styles.orderSummary}>
                     <h3>Order Summary</h3>
                     <hr className={styles.divider} />
+                    {/*
+                        <div className={styles.row}>
+                            <span>Items</span>
+                            <span>{totalItems}</span>
+                        </div>
 
+                    */}
                     <div className={styles.row}>
                         <span>Items</span>
-                        <span>{totalItems}</span>
+                        <span>1</span>
                     </div>
-
                     <div className={styles.row}>
                         <span className={styles.summaryItem}>Items total</span>
                         <div className={styles.summaryItem}>{` ₹${totalPrice}`}</div>
