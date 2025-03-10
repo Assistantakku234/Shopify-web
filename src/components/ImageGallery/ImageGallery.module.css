@@ -1,89 +1,51 @@
 .container {
+  display: none;
   text-align: center;
-  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
 }
 
-.heading {
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
-/* Image Slider */
 .slider {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
   overflow: hidden;
   width: 100%;
+  height: 80px;
+  position: relative;
 }
 
-.imageWrapper {
+.textWrapper {
   display: flex;
-  gap: 10px;
+  width: 400%;
 }
 
-.image {
-  border-radius: 8px;
-  transition: transform 0.3s ease-in-out;
-}
-
-.image:hover {
-  transform: scale(1.05);
-}
-
-/* Circular Arrows */
-.arrowLeft, .arrowRight {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: white;
-  color: black;
-  border: 2px solid black;
-  font-size: 16px;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.arrowLeft {
-  left: 5px;
-}
-
-.arrowRight {
-  right: 5px;
-}
-
-.arrowLeft:hover, .arrowRight:hover {
-  background: black;
-  color: white;
-}
-
-/* Free Shipping Section */
-.freeShipping {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  background-color: #f8f8f8;
+.textCard {
+  flex: 0 0 100%;
+  text-align: left;
   padding: 10px;
-  border-radius: 8px;
+  font-family: Arial, sans-serif;
 }
 
-.truckIcon {
-  font-size: 24px;
-  margin-right: 10px;
+.textCard h3 {
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-/* Dots Navigation */
+.textCard p {
+  font-size: 14px;
+  color: gray;
+}
+
+/* Smooth Transitions */
+.left {
+  transition: transform 0.5s ease-in-out;
+}
+
+.right {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Dots */
 .dots {
   display: flex;
   justify-content: center;
@@ -94,11 +56,21 @@
   width: 10px;
   height: 10px;
   margin: 0 5px;
-  background-color: gray;
+  background-color: lightgray;
   border-radius: 50%;
-  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .activeDot {
   background-color: black;
+}
+
+@media screen and (max-width : 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+  }
+  .slider {
+    min-height: 100px;
+  }
 }

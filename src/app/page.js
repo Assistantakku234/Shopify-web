@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import QuickShopPopup from "@/components/QuickShopPopup";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Imagega from "@/components/ImageGallery";
 
 
 
@@ -59,7 +60,7 @@ export default function Home() {
 
       
 
-
+      <Imagega/>
       <Navbar cartItems={getCartItemsForNavbar()} />
       <Hero />
       <CategoryGrid />

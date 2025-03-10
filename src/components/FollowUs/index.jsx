@@ -1,4 +1,5 @@
 "use client";
+import Imagega from "../ImageGallery";
 import styles from "./FollowUs.module.css";
 import { useRef } from "react";
 
@@ -145,6 +146,9 @@ const FollowUs = () => {
           </div>
         </div>
       </div>
+
+      <Imagega className={styles.imagegaMobile} />
+
     </div>
   );
 };
