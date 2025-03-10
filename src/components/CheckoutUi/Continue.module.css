@@ -88,8 +88,7 @@
 
 .quantityControl span {
   padding: 2px 6px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  border: none;
   margin: 0 4px;
 }
 
@@ -251,10 +250,9 @@
   }
 
   .cartItem {
-    max-width: 100%; 
-    flex-direction: column; 
+    max-width: 100%;  
     padding: 12px; 
-    justify-content: flex-start; 
+    justify-content: space-between; 
   }
 
   .cartItem img {
