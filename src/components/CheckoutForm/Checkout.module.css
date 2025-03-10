@@ -22,9 +22,8 @@
     padding: 8px;
     border: 1px solid #ddd;
     border-radius: 5px;
+   
 }
-
-
 
 .summarySection {
     flex: 1;
@@ -33,35 +32,11 @@
     padding: 20px;
 }
 
-.coupons{
-    margin-bottom: 20px;
-}
-
-.orderSummary {
-    
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 15px;
-    background: white;
-    font-family: Arial, sans-serif;
-  }
-
   .divider {
     border: none;
     border-top: 1px solid #ddd;
     margin: 10px 0;
   }
-
- 
-
-.continueButton {
-    background-color: #000;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 .continueButton:hover {
     background-color: #333;
@@ -81,10 +56,6 @@
 .applyButton:hover {
     background-color: #333;
 }
-
-
-
-
 
 .coupons {
     margin-bottom: 20px;
@@ -98,9 +69,9 @@
     font-family: Arial, sans-serif;
 }
 
-
-
 .row {
+    width:100%;
+    gap:10px;
     display: flex;
     justify-content: space-between;
     font-size: 14px;
@@ -114,7 +85,6 @@
   }
 
   .totalCost {
-  
     justify-content: space-between;
     font-size: 16px;
     font-weight: 600;
@@ -127,7 +97,6 @@
     margin-left: auto;
   }
 
-/* Buttons */
 .continueButton {
     background-color: #000;
     color: #fff;
@@ -139,20 +108,6 @@
 }
 
 .continueButton:hover {
-    background-color: #333;
-}
-
-.applyButton {
-    background-color: #000;
-    color: #fff;
-    padding: 5px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.applyButton:hover {
     background-color: #333;
 }
 
@@ -175,5 +130,50 @@
         padding: 10px; 
         font-size: 14px; 
     }
+
+    .row {
+        font-size: 16px; 
+        margin: 10px 0; 
+        flex-direction: column; 
+        align-items: flex-start;
+      }
+
+      .summarySection {
+        padding: 15px; 
+        margin: 10px 0; 
+        flex: 0 1 100%; 
+      }
+
+      .coupons {
+        margin-bottom: 15px; 
+      }
+
+      .applyButton {
+        font-size: 16px; 
+        margin: 8px; 
+        width: 100%; 
+      }
+
+      .orderSummary {
+        padding: 15px; 
+        margin: 10px 0;
+      }
+
+      .summaryItem {
+        flex-direction: column;  
+        font-size: 12px;        
+      }
+
+      .totalCost {
+        flex-direction: column;   
+        font-size: 14px;         
+        align-items: flex-start;  
+        margin: 8px 0;            
+      }
+
+      .continueButton {
+        padding: 12px;          
+        font-size: 14px;       
+      }
 }
 
