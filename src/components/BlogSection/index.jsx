@@ -1,5 +1,5 @@
-import BlogCard from "../productCard";
 import styles from "./BlogSection.module.css";
+import BlogCard from "@/components/BlogCard";
 
 const BlogSection = () => {
   const blogPosts = [
@@ -33,41 +33,47 @@ const BlogSection = () => {
   ];
 
   return (
-    <div className={styles.container}>
-
-      <div className={styles.titleContainer}>
-        <div className={styles.title}>
-          <div className={styles.line}></div>
-          <h2>LATEST FROM BLOG</h2>
-          <div className={styles.line}></div>
-        </div>
-        <p>The freshest and most exciting news</p>
-      </div>
-      <div className={styles.blogContainer}>
-        {blogPosts.map((post) => (
-          <div key={post.id} className={styles.blogCard}>
-            <div className={styles.parentContainer}>
-              <div className={styles.imageContainer}>
-                <div className={styles.effectOverlay}>
-                  <div className={`${styles.borderLine} ${styles.top}`}></div>
-                  <div className={`${styles.borderLine} ${styles.right}`}></div>
-                  <div className={`${styles.borderLine} ${styles.bottom}`}></div>
-                  <div className={`${styles.borderLine} ${styles.left}`}></div>
-                </div>
-                <img src={post.image} alt={post.title} />
-              </div>
-            </div>
-            <h3 className={styles.blogTitle}>{post.title}</h3>
-            <p className={styles.blogMeta}>
-              By {post.author} on {post.date}
-            </p>
-            <p className={styles.blogDescription}>{post.description}</p>
+    <>
+      <BlogCard />
+      <div className={styles.container}>
+        <div className={styles.titleContainer}>
+          <div className={styles.title}>
+            <div className={styles.line}></div>
+            <h2>LATEST FROM BLOG</h2>
+            <div className={styles.line}></div>
           </div>
-        ))}
+          <p>The freshest and most exciting news</p>
+        </div>
+        <div className={styles.blogContainer}>
+          {blogPosts.map((post) => (
+            <div key={post.id} className={styles.blogCard}>
+              <div className={styles.parentContainer}>
+                <div className={styles.imageContainer}>
+                  <div className={styles.effectOverlay}>
+                    <div className={`${styles.borderLine} ${styles.top}`}></div>
+                    <div
+                      className={`${styles.borderLine} ${styles.right}`}
+                    ></div>
+                    <div
+                      className={`${styles.borderLine} ${styles.bottom}`}
+                    ></div>
+                    <div
+                      className={`${styles.borderLine} ${styles.left}`}
+                    ></div>
+                  </div>
+                  <img src={post.image} alt={post.title} />
+                </div>
+              </div>
+              <h3 className={styles.blogTitle}>{post.title}</h3>
+              <p className={styles.blogMeta}>
+                By {post.author} on {post.date}
+              </p>
+              <p className={styles.blogDescription}>{post.description}</p>
+            </div>
+          ))}
+        </div>
       </div>
-
-    </div>
-
+    </>
   );
 };
 

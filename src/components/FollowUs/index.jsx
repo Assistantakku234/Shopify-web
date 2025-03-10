@@ -65,11 +65,9 @@ const FollowUs = () => {
     <div className={styles.container}>
       {/* Title */}
       <div className={styles.titleContainer}>
-        <div className={styles.title}>
-          <div className={styles.line}></div>
-          <h2>FOLLOW US ON INSTAGRAM</h2>
-          <div className={styles.line}></div>
-        </div>
+        <div className={styles.line}></div>
+          <h2>@ FOLLOW US ON INSTAGRAM</h2>
+        <div className={styles.line}></div>
       </div>
 
       {/* Image cards */}

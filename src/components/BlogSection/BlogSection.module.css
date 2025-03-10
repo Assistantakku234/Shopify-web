@@ -211,84 +211,8 @@
 }
 
 
-@media (max-width: 450px) {
+@media (max-width: 768px) {
   .container {
-    gap: 10px;
-    margin-bottom: 15px;
-    padding: 10px;
-    
+    display: none;
   }
-
-  .titleContainer {
-    margin: 20px auto;
-    gap: 6px;
-    padding: 5px;
-  }
-  
-    .title {
-      flex-direction: column; /* Stack elements vertically on very small screens */
-      font-size: 1rem;
-      gap: 5px;
-      text-align: center;
-    }
-
-    .title h2 {
-      font-size: 18px; 
-      text-align: center; 
-    }
-
-    .titleContainer p {
-      font-size: 12px; 
-      padding: 0 10px; 
-    }
-   
-    .line {
-      width: 55px; 
-    }
-
-    .blogContainer {
-      flex-direction: column; 
-      align-items: center;
-      gap: 8px;
-      padding: 5px;
-    }
-
-    .blogCard {
-      width: 100%;
-      max-height: auto;
-      padding: 10px; 
-    }
-
-    .parentContainer {
-      width: 100%;
-      max-height: auto;
-      padding: 10px; 
-    }
-
-    .imageContainer {
-      width: 100%;
-      max-height: auto;
-      border-radius: 5px; 
-    }
-
-    .imageContainer img {
-      max-height: 250px; 
-    }
-
-    .parentContainer:hover .imageContainer img {
-      transform: translateY(-15px); 
-    }
-
-    .blogTitle {
-      font-size: 14px;
-    }
-
-    .blogTitle {
-      font-size: 14px;
-    }
-
-    .blogDescription {
-      font-size: 13px;
-      line-height: 1.5;
-    }
 }

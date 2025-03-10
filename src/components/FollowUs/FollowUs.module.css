@@ -9,15 +9,9 @@
   margin: 100px auto;
 }
 
-.titleContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  margin: 40px auto;
-}
 
-.title {
+.titleContainer {
+  margin: 40px auto;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -25,7 +19,7 @@
   text-transform: uppercase;
 }
 
-.title h2 {
+.titleContainer h2 {
   font-size: 24px;
   font-weight: 600;
 }
@@ -188,19 +182,16 @@
   }
 
   .titleContainer {
-    margin: 20px auto; 
-    gap: 5px; 
-    padding: 0 10px;
-  }
-
-  .title {
     font-size: 18px; 
     gap: 5px;
-    flex-direction: column; 
-    text-align: center; 
+    width: 100%;
+    margin: 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
-  .title h2 {
+  .titleContainer h2 {
     font-size: 18px; 
     text-align: center; 
   }
@@ -235,8 +226,6 @@
     flex-direction: column;
     text-align: center;
   }
-  
-
 }
 
 @media (max-width: 768px) {
