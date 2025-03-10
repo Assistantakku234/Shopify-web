@@ -366,7 +366,7 @@
 }
 
 /* Responsive Design */
-@media only screen and (max-width: 765px) {
+@media only screen and (max-width: 768px) {
   .container {
     margin: 30px auto;
   }
@@ -444,25 +444,27 @@
     font-weight: 400;
   }
 
-  .customPopup {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 90%;
-    padding: 16px;
+  .popupCard {
+    top: -100px;
+    left: 50%;
+    padding: 5px;
+    gap: 5px;
+    width: auto;
+    max-width: 150px;
+    min-height: 70px;
   }
-
   .popupImage {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    min-height: 60px;
+    object-fit: cover;
   }
-
-  .popupTitle {
-    font-size: 14px;
+  .popupDetails {
+    font-size: 10px;
   }
-
-  .popupCheckoutBtn {
-    font-size: 12px;
-    padding: 6px 12px;
+  .checkoutBtn {
+    width: 60px;
+    padding: 5px;
+    font-weight: 400;
+    font-size: 10px;
   }
 }

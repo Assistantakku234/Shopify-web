@@ -396,7 +396,7 @@
 
 
 
-@media only screen and (max-width: 765px) {
+@media only screen and (max-width: 768px) {
   .container {
     margin: 30px auto;
   }
@@ -476,4 +476,28 @@
     font-size: 10px;
     font-weight: 400;
   }
+  
+.popupCard {
+  top: -100px;
+  left: 50%;
+  padding: 5px;
+  gap: 5px;
+  width: auto;
+  max-width: 150px;
+  min-height: 70px;
+}
+.popupImage {
+  width: 40px;
+  min-height: 60px;
+  object-fit: cover;
+}
+.popupDetails {
+  font-size: 10px;
+}
+.checkoutBtn {
+  width: 60px;
+  padding: 5px;
+  font-weight: 400;
+  font-size: 10px;
+}
 }
