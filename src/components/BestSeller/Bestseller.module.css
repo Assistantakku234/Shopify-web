@@ -145,53 +145,6 @@
   opacity: 1;
 }
 
-/* Top Left Buttons */
-.topLeftButtons {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.icon {
-  font-size: 20px;
-}
-
-.smallBtn {
-  padding: 5px;
-  border: none;
-  background: transparent;
-  color: aliceblue;
-  font-size: 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-  opacity: 0;
-  transform: translateX(-20px);
-}
-
-.smallBtn:hover {
-  background: white;
-  color: black;
-}
-
-.imageWrapper:hover .smallBtn {
-  animation: slideInLeft 0.4s forwards;
-}
-
-@keyframes slideInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
 /* Center Buttons */
 .centerButtons {
   top: 50%;
@@ -300,6 +253,7 @@
   width: 100%;
 }
 
+/* Load More Button */
 .LoadMoreBtn {
   height: 50px;
   width: 160px;
@@ -319,7 +273,7 @@
 .LoadMoreBtn::before {
   content: "";
   position: absolute;
-  top:0;
+  top: 0;
   left: -100%;
   width: 100%;
   height: 100%;
@@ -346,22 +300,72 @@
   z-index: 3;
 }
 
-.popup {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
-  top: 30px;
+/* Custom Add-to-Cart Popup */
+.popupContainer {
+  position: relative;
+  height: 1px;
+}
+.popupCard {
+  position: relative;
+  top: -100px;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  background-color: white;
+  color: black;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
   z-index: 100;
-  font-size: 0.8rem;
+  animation: fadeIn 0.3s ease-in-out;
+  width: auto;
+  max-width: 270px;
+  min-height: 100px;
 }
 
+.popupImage {
+  width: 60px;
+  min-height: 100px;
+  object-fit: cover;
+}
 
+.popupTitle {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
 
+.checkoutBtn {
+  width: 140px;
+  padding: 10px 20px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 600;
+  background: rgb(34, 34, 34);
+  font-size: 14px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
 
+.checkoutBtn:hover {
+  background-color: #43bacc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media only screen and (max-width: 765px) {
   .container {
     margin: 30px auto;
@@ -374,7 +378,7 @@
   .imgCard {
     height: auto;
     max-width: 150px;
-    width:150px;
+    width: 150px;
   }
 
   .cardsContainer {
@@ -394,7 +398,6 @@
     height: 192px;
   }
 
-  /* Center Buttons */
   .centerButtons {
     gap: 5px;
     top: 80%;
@@ -420,7 +423,6 @@
     font-weight: 400;
   }
 
-  /* Footer Text */
   .footerText {
     bottom: 5px;
     font-size: 10px;
@@ -432,15 +434,35 @@
     width: 150px;
   }
 
-
   .cardTitle {
     font-size: 10px;
     font-weight: 500;
-
   }
 
   .cardPrice {
     font-size: 10px;
     font-weight: 400;
+  }
+
+  .customPopup {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 90%;
+    padding: 16px;
+  }
+
+  .popupImage {
+    width: 50px;
+    height: 50px;
+  }
+
+  .popupTitle {
+    font-size: 14px;
+  }
+
+  .popupCheckoutBtn {
+    font-size: 12px;
+    padding: 6px 12px;
   }
 }

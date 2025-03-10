@@ -95,6 +95,8 @@ const initialCards = [
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [selectedOption, setSelectedOption] = useState("Alphabetically, A-Z");
+  const [popup, setPopup] = useState(null);
+  
 
   const filteredCards = useMemo(() => {
     let filtered = [...initialCards];
@@ -142,6 +144,22 @@ const ProductsPage = () => {
     if (navRef.current) {
       navRef.current.scrollLeft += direction * 100;
     }
+  };
+
+  
+  const handleAddToCart = (card, index) => {
+    const cartItem = {
+      title: card.title,
+      price: card.price,
+      image: card.image,
+    };
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+    existingCart.push(cartItem);
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+    setPopup(index, card);
+    setTimeout(() => {
+      setPopup(null);
+    }, 3000);
   };
 
   const handleTouchStart = (e) => {
@@ -235,37 +253,13 @@ const ProductsPage = () => {
               />
               <div className={styles.cardOverlay}>
                 <div className={styles.overlayContent}>
-                  <div className={styles.topLeftButtons}>
-                    <button className={`${styles.smallBtn} ${styles.btn1}`}>
-                      <CiHeart className={styles.icon} />
-                    </button>
-                    <button className={`${styles.smallBtn} ${styles.btn2}`}>
-                      <TbArrowsCross className={styles.icon} />
-                    </button>
-                  </div>
                   <div className={styles.centerButtons}>
-                    <Link href="/Check">
                       <button
                         className={styles.addToCartBtn}
-                        onClick={() => {
-                          const cartItem = {
-                            title: card.title,
-                            price: card.price,
-                            image: card.image,
-                          };
-                          const existingCart =
-                            JSON.parse(localStorage.getItem("cart")) || [];
-                          existingCart.push(cartItem);
-                          localStorage.setItem(
-                            "cart",
-                            JSON.stringify(existingCart)
-                          );
-                          alert("Item added to cart!");
-                        }}
+                        onClick={() => handleAddToCart(card, index)}
                       >
                         Add to Cart
                       </button>
-                    </Link>
                     <Link
                       href="/ViewItem"
                       onClick={() =>
@@ -283,6 +277,26 @@ const ProductsPage = () => {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
+              {popup === index && (
+                <div className={styles.popupContainer}>
+                  <div className={styles.popupCard}>
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupDetails}>
+                      <strong>{card.title}</strong>
+                      <p className={styles.popupText}>
+                        added to cart!
+                      </p>
+                      <Link href="./Check">
+                        <button className={styles.checkoutBtn}>Checkout</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              )}
           </div>
         ))}
       </div>

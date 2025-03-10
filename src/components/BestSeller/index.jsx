@@ -120,11 +120,6 @@ export default function BestSeller() {
     setSelectedSize(card.sizes.split(", ")[0] || "");
   };
 
-  const closePopup = () => {
-    setSelectedCard(null);
-    setSelectedSize("");
-  };
-
   const handleAddToCart = (card, index) => {
     const cartItem = {
       title: card.title,
@@ -137,7 +132,7 @@ export default function BestSeller() {
     setPopup(index, card);
     setTimeout(() => {
       setPopup(null);
-    }, 1000);
+    }, 3000);
   };
 
   return (
@@ -177,14 +172,6 @@ export default function BestSeller() {
                 />
                 <div className={styles.overlay}>
                   <div className={styles.overlayContent}>
-                    {/* <div className={styles.topLeftButtons}>
-                    <button className={`${styles.smallBtn} ${styles.btn1}`}>
-                      <CiHeart className={styles.icon} />
-                    </button>
-                    <button className={`${styles.smallBtn} ${styles.btn2}`}>
-                      <TbArrowsCross className={styles.icon} />
-                    </button>
-                  </div> */}
                     <div className={styles.centerButtons}>
                       <button
                         className={styles.addToCartBtn}
@@ -213,7 +200,24 @@ export default function BestSeller() {
                 <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
               </div>
               {popup === index && (
-                <div className={styles.popup}>Added to cart!</div>
+                <div className={styles.popupContainer}>
+                  <div className={styles.popupCard}>
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className={styles.popupImage}
+                    />
+                    <div className={styles.popupDetails}>
+                      <strong>{card.title}</strong>
+                      <p className={styles.popupText}>
+                        added to cart!
+                      </p>
+                      <Link href="./Check">
+                        <button className={styles.checkoutBtn}>Checkout</button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               )}
             </div>
           ))}
