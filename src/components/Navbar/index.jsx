@@ -106,13 +106,15 @@ const Navbar = ({ cartItems }) => {
         <button className={styles.hamburger} onClick={toggleMenuPopup}>
           <RiMenu2Fill />
         </button>
-        <Image
-          src="/Kalles.webp"
-          alt="Women"
-          width={95}
-          height={29}
-          className={styles.logoImg}
-        />
+        <Link href="/">
+          <Image
+            src="/Kalles.webp"
+            alt="Women"
+            width={95}
+            height={29}
+            className={styles.logoImg}
+          />
+        </Link>
         <ul className={styles.menu}>
           <li>
             <Link href="/">Demo</Link>
