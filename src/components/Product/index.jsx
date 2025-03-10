@@ -24,6 +24,9 @@ const initialCards = [
     image: "/Resin Strap.jpg",
     hoverImage: "/Resin Strap02.jpg",
     sizes: "XS, S, M, L",
+    description: "A stylish and durable backpack.",
+    rating: "4.5",
+    tag: { name: "New", color: "#007bff" },
     category: "Shoes",
     NewArrival: true,
   },
@@ -33,6 +36,9 @@ const initialCards = [
     image: "/Ridley01.jpg",
     hoverImage: "/Ridley02.jpg",
     sizes: "S, M, L",
+    description: "Comfortable and stylish high-waist jeans.",
+    rating: "4.2",
+    tag: { name: "Trending", color: "#ff5733" },
     category: "Denim",
     NewArrival: true,
   },
@@ -42,6 +48,9 @@ const initialCards = [
     image: "/Blush Beanie01.jpg",
     hoverImage: "/Blush Beanie02.jpg",
     sizes: "XS, S, M, L",
+    description: "A cozy beanie for winter warmth.",
+    rating: "4.7",
+    tag: { name: "Best Seller", color: "#28a745" },
     category: "Hats",
     NewArrival: true,
   },
@@ -51,6 +60,9 @@ const initialCards = [
     image: "/Gold01.jpg",
     hoverImage: "/Gold02.jpg",
     sizes: "One Size",
+    description: "A luxury rose gold watch for elegant style.",
+    rating: "4.6",
+    tag: { name: "Exclusive", color: "#ff9800" },
     category: "Women",
     NewArrival: true,
   },
@@ -60,6 +72,9 @@ const initialCards = [
     image: "/Mercury01.jpg",
     hoverImage: "/Mercury02.jpg",
     sizes: "S, M, L, XL, XXL",
+    description: "A premium cotton t-shirt with a modern fit.",
+    rating: "4.3",
+    tag: { name: "New Arrival", color: "#6c757d" },
     category: "Men",
     NewArrival: true,
   },
@@ -69,6 +84,9 @@ const initialCards = [
     image: "/RoseGold01.jpg",
     hoverImage: "/RoseGold02.jpg",
     sizes: "XS, S, M, L",
+    description: "A classic rose gold wristwatch.",
+    rating: "4.5",
+    tag: { name: "Limited Edition", color: "#d81b60" },
     category: "Sale",
     NewArrival: true,
   },
@@ -78,6 +96,9 @@ const initialCards = [
     image: "/Women Pants01.jpg",
     hoverImage: "/Women Pants02.jpg",
     sizes: "S, M, L, XL, XXL",
+    description: "Elegant and comfortable women's pants.",
+    rating: "4.5",
+    tag: { name: "New", color: "#007bff" },
     category: "Women",
     NewArrival: true,
   },
@@ -87,10 +108,15 @@ const initialCards = [
     image: "/hat01.jpg",
     hoverImage: "/hat02.jpg",
     sizes: "XS, S, M, L",
+    description: "A stylish black hat for outdoor adventures.",
+    rating: "4.4",
+    tag: { name: "Trending", color: "#ff5733" },
     category: "Hats",
     NewArrival: true,
   },
 ];
+
+
 
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
@@ -240,6 +266,17 @@ const ProductsPage = () => {
       <div className={styles.cardsContainer}>
         {filteredCards.map((card, index) => (
           <div key={index} className={styles.imgCard}>
+
+            <div className={styles.tagContainer}>
+              {card.tag && (
+                <div
+                  className={styles.tag}
+                  style={{ backgroundColor: card.tag.color }}
+                >
+                  {card.tag.name}
+                </div>
+              )}
+            </div>
             <div className={styles.imageWrapper}>
               <img
                 src={card.image}
