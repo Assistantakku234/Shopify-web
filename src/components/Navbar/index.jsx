@@ -101,6 +101,7 @@ const Navbar = ({ cartItems }) => {
   return (
     <>
       <Headertop />
+      <Header />
       <div className={styles.navbar}>
         <button className={styles.hamburger} onClick={toggleMenuPopup}>
           <RiMenu2Fill />
@@ -232,9 +233,8 @@ const Navbar = ({ cartItems }) => {
             {/* Email Input */}
             <div className={styles.inputContainer}>
               <label
-                className={`${styles.label} ${
-                  isEmailFocused || email ? styles.shrink : ""
-                }`}
+                className={`${styles.label} ${isEmailFocused || email ? styles.shrink : ""
+                  }`}
               >
                 E-mail <span className={styles.mandatory}>*</span>
               </label>
@@ -251,9 +251,8 @@ const Navbar = ({ cartItems }) => {
             {/* Password Input */}
             <div className={styles.inputContainer}>
               <label
-                className={`${styles.label} ${
-                  isPasswordFocused || password ? styles.shrink : ""
-                }`}
+                className={`${styles.label} ${isPasswordFocused || password ? styles.shrink : ""
+                  }`}
               >
                 Password <span className={styles.mandatory}>*</span>
               </label>

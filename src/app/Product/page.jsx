@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import ProductsPage from "@/components/Product";
 import Footer from "@/components/Footer";
 
