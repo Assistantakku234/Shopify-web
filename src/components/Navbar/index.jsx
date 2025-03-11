@@ -4,24 +4,21 @@ import Header from "@/components/Header";
 import Headertop from "@/components/Headertop";
 import Cart from "@/components/Cart";
 import Sidemenu from "@/components/Sidemenu";
+import Searchit from "@/components/Search";
 import Image from "next/image";
 import Link from "next/link";
 import { ShoppingCart, User, Search, Heart, X } from "lucide-react";
 import { IoCloseOutline } from "react-icons/io5";
 import { RiMenu2Fill } from "react-icons/ri";
-import { FiSearch } from "react-icons/fi";
 import styles from "./Navbar.module.css";
 
-const Navbar = ({ cartItems }) => {
-  const [isChecked, setIsChecked] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+const Navbar = () => {
   const [isEmailFocused, setIsEmailFocused] = useState(false);
   const [isPasswordFocused, setIsPasswordFocused] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showSearch, setShowSearch] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
-  const [activeList, setActiveList] = useState("MENU");
   const [cartCount, setCartCount] = useState(0);
   const [cartOpen, setCartOpen] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
@@ -39,39 +36,6 @@ const Navbar = ({ cartItems }) => {
     }
   }, [cartOpen]);
 
-  const products = [
-    {
-      id: 1,
-      name: "Analogue Resin Strap",
-      price: "$ 30.00",
-      image: "/Resin Strap.jpg",
-    },
-    {
-      id: 2,
-      name: "Ridley High Waist",
-      price: "$36.00",
-      image: "/Ridley01.jpg",
-    },
-    {
-      id: 3,
-      name: "Blush Beanie",
-      price: "$15.00",
-      image: "/Blush Beanie01.jpg",
-    },
-    {
-      id: 4,
-      name: "Cluse La Baheme Rose Gold",
-      price: "$45.00",
-      image: "/Gold01.jpg",
-    },
-    {
-      id: 5,
-      name: "Mercury Tee",
-      price: "$68.00",
-      image: "/Mercury01.jpg",
-    },
-  ];
-
   const toggleSearchPopup = () => {
     setShowSearch(!showSearch);
   };
@@ -86,11 +50,6 @@ const Navbar = ({ cartItems }) => {
 
   const handleUserClick = () => {
     setShowLogin(true);
-  };
-
-  const handleSuggestionClick = (value) => {
-    setSearchValue(value);
-    setShowSearch(false);
   };
 
   const toggleMenuPopup = () => {
@@ -118,31 +77,9 @@ const Navbar = ({ cartItems }) => {
           <li>
             <Link href="/">Home</Link>
           </li>
-          {/* <li>
-            <Link href="/">
-              Shop <span className={styles.newBadge}>New</span>
-            </Link>
-          </li> */}
           <li>
             <Link href="/Product">Product</Link>
           </li>
-          {/* <li>
-            <Link href="/Check">
-              Sale <span className={styles.saleBadge}>Sale</span>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">Pages</Link>
-          </li>
-          <li>
-            <Link href="/">Lookbook</Link>
-          </li>
-          <li>
-            <Link href="/">Blog</Link>
-          </li>
-          <li>
-            <Link href="/">Buy Theme</Link>
-          </li> */}
         </ul>
         <div className={styles.icons}>
           <div onClick={toggleSearchPopup}>
@@ -153,14 +90,6 @@ const Navbar = ({ cartItems }) => {
               className={`${styles.icon} ${styles.iconHover} ${styles.iconHide} `}
             />
           </div>
-          {/* <div className={styles.heartContainer}>
-            <Link href="/User">
-              <div className={styles.heartContainer}>
-                <Heart className={`${styles.icon} ${styles.iconHover}`} />
-                <span className={styles.heartBadge}>0</span>
-              </div>
-            </Link>
-          </div> */}
           <div className={styles.cartContainer} onClick={toggleCartPopup}>
             <ShoppingCart className={`${styles.icon} ${styles.iconHover}`} />
             <span className={styles.cartBadge}>{cartCount}</span>
@@ -175,51 +104,7 @@ const Navbar = ({ cartItems }) => {
           <X className={styles.closeIcon} onClick={toggleSearchPopup} />
         </div>
         <hr className={styles.SearchDivider} />
-        <div className={styles.searchContainer}>
-          <div className={styles.search}>
-            <input
-              type="text"
-              placeholder="Search"
-              className={styles.searchBar}
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-            <button className={styles.searchButton}>
-              <FiSearch className={styles.searchIcon} />
-            </button>
-          </div>
-
-          <div className={styles.searchlistContainer}>
-            <span className={styles.quickSearch}>Quick Search:</span>
-            <ul className={styles.Searchlist}>
-              <li onClick={() => handleSuggestionClick("Women")}>Women,</li>
-              <li onClick={() => handleSuggestionClick("Men")}>Men,</li>
-              <li onClick={() => handleSuggestionClick("New")}>New</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className={styles.inspiration}>Need some inspiration</div>
-        <div className={styles.productList}>
-          <div className={styles.scrollContainer}>
-            {products.map((product) => (
-              <div key={product.id} className={styles.productItem}>
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className={styles.productImage}
-                />
-                <div className={styles.productInfo}>
-                  <p className={styles.productName}>{product.name}</p>
-                  <p className={styles.productPrice}>{product.price}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className={styles.viewAll}>
-            <Link href="/products">View All →</Link>
-          </div>
-        </div>
+        <Searchit />
       </div>
 
       {/* Login Popup */}

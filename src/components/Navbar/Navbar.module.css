@@ -88,41 +88,6 @@
   color: #666;
 }
 
-.searchlistContainer {
-  margin-top: 30px;
-  width: 280px;
-  display: flex;
-}
-
-.Searchlist a {
-  font-size: 12px;
-  font-weight: 400;
-  color: rgb(135, 135, 135);
-}
-
-.Searchlist a:hover {
-  color: rgb(86, 207, 225);
-  cursor: pointer;
-}
-
-.Searchlist {
-  font-size: 12px;
-  font-weight: 400;
-  max-width: 150px;
-  color: rgb(135, 135, 135);
-  display: inline-block;
-  padding: 0;
-  margin-left: 5px;
-  display: flex;
-  gap: 10px;
-  list-style: none;
-}
-
-.Searchlist li:hover {
-  color: rgb(86, 207, 225);
-  cursor: pointer;
-}
-
 .header {
   display: flex;
   justify-content: space-between;
@@ -144,38 +109,6 @@
   text-transform: uppercase;
   vertical-align: baseline;
   color: rgb(34, 34, 34);
-}
-
-.searchInputContainer {
-  display: flex;
-  align-items: center;
-  border-radius: 9px;
-  overflow: hidden;
-  border: 1px solid #ccc;
-  margin-top: 20px;
-  padding: 0 50px 0 20px;
-  line-height: 18px;
-  height: 40px;
-  font-size: 13px;
-  max-width: 100%;
-  width: 100%;
-  border-bottom: 1px solid rgba(var(--border-color-rgb), 0.8);
-}
-
-.searchInput {
-  padding: 0 50px 0 20px;
-}
-
-.quickSearch {
-  font-size: 12px;
-  font-weight: 400;
-  color: rgb(34, 34, 34);
-}
-
-.quickSearch span {
-  font-size: 12px;
-  font-weight: 400;
-  color: rgb(135, 135, 135);
 }
 
 .menu li a {
@@ -645,14 +578,6 @@
   color: var(--text-color);
 }
 
-.searchContainer {
-  width: 100%;
-  padding: 20px;
-  font-size: 14px;
-  font-weight: 400;
-  color: var(--text-color);
-}
-
 .inputContainer {
   position: relative;
   width: 100%;
@@ -834,44 +759,6 @@
   border-color: #000;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-  height: 40px;
-  max-width: 300px;
-  position: relative;
-}
-
-.searchBar {
-  height: 40px;
-  width: 100%;
-  border: 1px solid #ccc;
-  border-radius: 20px;
-  padding: 10px 40px 10px 20px;
-  font-size: 14px;
-  background: transparent;
-  outline: none;
-}
-
-.searchButton {
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  border: none;
-  background-color: transparent;
-  padding: 5px;
-  cursor: pointer;
-}
-
-.searchIcon {
-  font-size: 20px;
-  color: #333;
-}
-  .createAccount:hover{
-    color: #00bcd4;
-  }
-
   .overlay {
     position: fixed;
     top: 0;
@@ -932,28 +819,14 @@
   }
 
   
-  
-  .searchBox {
-    display: flex;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-top: 8px;
-    margin-bottom: 10px;
-    border-radius: 20px;
-  }
-  
+
   .input {
     flex: 1;
     padding: 10px;
     border: none;
     outline: none;
   }
-  
-  .quickSearch {
-    font-size: 14px;
-    margin-bottom: 15px;
-  }
+
   
   .suggestions {
     display: flex;
