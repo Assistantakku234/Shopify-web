@@ -1,6 +1,6 @@
 "use client";
-import styles from "./FollowUs.module.css";
 import { useRef } from "react";
+import styles from "./Follow.module.css";
 
 const FollowUs = () => {
   const blogPosts = [
@@ -65,7 +65,7 @@ const FollowUs = () => {
       {/* Title */}
       <div className={styles.titleContainer}>
         <div className={styles.line}></div>
-          <h2>@ FOLLOW US ON INSTAGRAM</h2>
+        <h2>@ FOLLOW US ON INSTAGRAM</h2>
         <div className={styles.line}></div>
       </div>
 

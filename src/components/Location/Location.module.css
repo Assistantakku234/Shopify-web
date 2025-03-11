@@ -93,3 +93,27 @@
   .mapContainer .leaflet-container {
     border-left: 1px solid #e0e0e0;
   }
+
+  @media (max-width: 450px) {
+    .container {
+        flex-direction: column; 
+        max-width: 100%;
+        margin: 10px; 
+    }
+
+    .sidebar {
+      width: 100%; 
+      border-right: none; 
+      border-bottom: 1px solid #e0e0e0; 
+  }
+
+  .locationCard {
+    padding: 10px; 
+    font-size: 14px; 
+}
+
+.mapContainer {
+  width: 100%; 
+  height: 300px; 
+}
+}

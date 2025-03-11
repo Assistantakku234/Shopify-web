@@ -1051,8 +1051,10 @@
     .menuPopup {
       display: flex;
     }
-    .logoImg {
+    .logLink {
       position: absolute;
+      align-self: center;
+      justify-content: center;
       left: 50%;
       transform: translateX(-50%);
     }

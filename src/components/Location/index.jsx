@@ -1,17 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
-import styles from "./Location.module.css";
-import "leaflet/dist/leaflet.css";
+import styles from "./Location.module.css"
 
-// Custom marker icon
-const markerIcon = new L.Icon({
-  iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-});
 
 const locations = [
   {
@@ -72,25 +63,15 @@ const LocationMap = () => {
         </div>
 
         <div className={styles.mapContainer}>
-          <MapContainer
-            center={selectedLocation ? selectedLocation.position : [38.9072, -77.0369]}
-            zoom={12}
-            scrollWheelZoom={true}
-            style={{ height: "100%", width: "100%" }}
-          >
-            <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-            {locations.map((loc) => (
-              <Marker key={loc.id} position={loc.position} icon={markerIcon}>
-                <Popup>
-                  <strong>{loc.name}</strong>
-                  <br />
-                  {loc.address}
-                  <br />
-                  {loc.phone}
-                </Popup>
-              </Marker>
-            ))}
-          </MapContainer>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8394.645506285018!2d75.89755664996899!3d22.75063819727343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fddaa551a027%3A0xb721ca8321a831b6!2sVoso%20Vyapar!5e0!3m2!1sen!2sin!4v1741608034493!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </>

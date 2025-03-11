@@ -6,7 +6,7 @@ import { TbArrowsCross } from "react-icons/tb";
 import styles from "./Product.module.css";
 
 const categories = [
-  { id: 1, name: "New Arrival", heroImage: "heroImages/Newarrival.jpg" },
+  { id: 1, name: "New Arrival", heroImage: "heroImages/Denim.jpg" },
   { id: 2, name: "Decor", heroImage: "heroImages/Decor.jpg" },
   { id: 3, name: "Denim", heroImage: "heroImages/Denim.jpg" },
   { id: 4, name: "Dress", heroImage: "heroImages/Dress.jpg" },
@@ -24,6 +24,9 @@ const initialCards = [
     image: "/Resin Strap.jpg",
     hoverImage: "/Resin Strap02.jpg",
     sizes: "XS, S, M, L",
+    description: "A stylish and durable backpack.",
+    rating: "4.5",
+    tag: { name: "New", color: "#007bff" },
     category: "Shoes",
     NewArrival: true,
   },
@@ -33,6 +36,9 @@ const initialCards = [
     image: "/Ridley01.jpg",
     hoverImage: "/Ridley02.jpg",
     sizes: "S, M, L",
+    description: "Comfortable and stylish high-waist jeans.",
+    rating: "4.2",
+    tag: { name: "Trending", color: "#ff5733" },
     category: "Denim",
     NewArrival: true,
   },
@@ -42,6 +48,9 @@ const initialCards = [
     image: "/Blush Beanie01.jpg",
     hoverImage: "/Blush Beanie02.jpg",
     sizes: "XS, S, M, L",
+    description: "A cozy beanie for winter warmth.",
+    rating: "4.7",
+    tag: { name: "Best Seller", color: "#28a745" },
     category: "Hats",
     NewArrival: true,
   },
@@ -51,6 +60,9 @@ const initialCards = [
     image: "/Gold01.jpg",
     hoverImage: "/Gold02.jpg",
     sizes: "One Size",
+    description: "A luxury rose gold watch for elegant style.",
+    rating: "4.6",
+    tag: { name: "Exclusive", color: "#ff9800" },
     category: "Women",
     NewArrival: true,
   },
@@ -60,6 +72,9 @@ const initialCards = [
     image: "/Mercury01.jpg",
     hoverImage: "/Mercury02.jpg",
     sizes: "S, M, L, XL, XXL",
+    description: "A premium cotton t-shirt with a modern fit.",
+    rating: "4.3",
+    tag: { name: "New Arrival", color: "#6c757d" },
     category: "Men",
     NewArrival: true,
   },
@@ -69,6 +84,9 @@ const initialCards = [
     image: "/RoseGold01.jpg",
     hoverImage: "/RoseGold02.jpg",
     sizes: "XS, S, M, L",
+    description: "A classic rose gold wristwatch.",
+    rating: "4.5",
+    tag: { name: "Limited Edition", color: "#d81b60" },
     category: "Sale",
     NewArrival: true,
   },
@@ -78,6 +96,9 @@ const initialCards = [
     image: "/Women Pants01.jpg",
     hoverImage: "/Women Pants02.jpg",
     sizes: "S, M, L, XL, XXL",
+    description: "Elegant and comfortable women's pants.",
+    rating: "4.5",
+    tag: { name: "New", color: "#007bff" },
     category: "Women",
     NewArrival: true,
   },
@@ -87,16 +108,21 @@ const initialCards = [
     image: "/hat01.jpg",
     hoverImage: "/hat02.jpg",
     sizes: "XS, S, M, L",
+    description: "A stylish black hat for outdoor adventures.",
+    rating: "4.4",
+    tag: { name: "Trending", color: "#ff5733" },
     category: "Hats",
     NewArrival: true,
   },
 ];
 
+
+
 const ProductsPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(categories[0]);
   const [selectedOption, setSelectedOption] = useState("Alphabetically, A-Z");
   const [popup, setPopup] = useState(null);
-  
+
 
   const filteredCards = useMemo(() => {
     let filtered = [...initialCards];
@@ -146,7 +172,7 @@ const ProductsPage = () => {
     }
   };
 
-  
+
   const handleAddToCart = (card, index) => {
     const cartItem = {
       title: card.title,
@@ -240,6 +266,17 @@ const ProductsPage = () => {
       <div className={styles.cardsContainer}>
         {filteredCards.map((card, index) => (
           <div key={index} className={styles.imgCard}>
+
+            <div className={styles.tagContainer}>
+              {card.tag && (
+                <div
+                  className={styles.tag}
+                  style={{ backgroundColor: card.tag.color }}
+                >
+                  {card.tag.name}
+                </div>
+              )}
+            </div>
             <div className={styles.imageWrapper}>
               <img
                 src={card.image}
@@ -254,12 +291,12 @@ const ProductsPage = () => {
               <div className={styles.cardOverlay}>
                 <div className={styles.overlayContent}>
                   <div className={styles.centerButtons}>
-                      <button
-                        className={styles.addToCartBtn}
-                        onClick={() => handleAddToCart(card, index)}
-                      >
-                        Add to Cart
-                      </button>
+                    <button
+                      className={styles.addToCartBtn}
+                      onClick={() => handleAddToCart(card, index)}
+                    >
+                      Add to Cart
+                    </button>
                     <Link
                       href="/ViewItem"
                       onClick={() =>
@@ -277,26 +314,26 @@ const ProductsPage = () => {
               <h3 className={styles.cardTitle}>{card.title}</h3>
               <p className={styles.cardPrice}>{` $ ${card.price}`}</p>
             </div>
-              {popup === index && (
-                <div className={styles.popupContainer}>
-                  <div className={styles.popupCard}>
-                    <img
-                      src={card.image}
-                      alt={card.title}
-                      className={styles.popupImage}
-                    />
-                    <div className={styles.popupDetails}>
-                      <strong>{card.title}</strong>
-                      <p className={styles.popupText}>
-                        added to cart!
-                      </p>
-                      <Link href="./Check">
-                        <button className={styles.checkoutBtn}>Checkout</button>
-                      </Link>
-                    </div>
+            {popup === index && (
+              <div className={styles.popupContainer}>
+                <div className={styles.popupCard}>
+                  <img
+                    src={card.image}
+                    alt={card.title}
+                    className={styles.popupImage}
+                  />
+                  <div className={styles.popupDetails}>
+                    <strong>{card.title}</strong>
+                    <p className={styles.popupText}>
+                      added to cart!
+                    </p>
+                    <Link href="./Check">
+                      <button className={styles.checkoutBtn}>Checkout</button>
+                    </Link>
                   </div>
                 </div>
-              )}
+              </div>
+            )}
           </div>
         ))}
       </div>
