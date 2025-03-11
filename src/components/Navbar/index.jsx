@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Headertop from "@/components/Headertop";
@@ -117,7 +116,7 @@ const Navbar = ({ cartItems }) => {
         </Link>
         <ul className={styles.menu}>
           <li>
-            <Link href="/">Demo</Link>
+            <Link href="/">Home</Link>
           </li>
           {/* <li>
             <Link href="/">
@@ -308,10 +307,13 @@ const Navbar = ({ cartItems }) => {
         <div className={styles.menuContainer}>
           <Sidemenu />
         </div>
-        <IoCloseOutline
-          className={styles.menuCloseIcon}
-          onClick={toggleMenuPopup}
-        />
+        <div className={styles.sideCloseContainer}
+            onClick={toggleMenuPopup}>
+          <IoCloseOutline
+            className={styles.menuCloseIcon}
+            onClick={toggleMenuPopup}
+          />
+        </div>
       </div>
 
       {/* Bottom Menu Popup */}
