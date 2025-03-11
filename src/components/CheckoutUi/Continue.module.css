@@ -16,7 +16,7 @@
 
 .cartSection {
   width: 500px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .cartTitle {
@@ -29,6 +29,7 @@
 .cartTitle h2 {
   font-size: 20px;
   font-weight: 600;
+  margin-top: -20px;
 }
 
 .cartTitle .cartItem span {
@@ -236,11 +237,13 @@
   .cartTitle {
     margin-bottom: 15px; 
     text-align: center; 
+   
   }
 
   .cartTitle h2 {
     font-size: 18px;
     font-weight: 600; 
+   
   }
 
   .cartTitle .cartItem span {
